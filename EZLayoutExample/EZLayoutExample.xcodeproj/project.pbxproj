@@ -1,0 +1,539 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		26278F241B30905000D9B58D /* EZLayoutFlexibleRatio.m in Sources */ = {isa = PBXBuildFile; fileRef = 26278F231B30905000D9B58D /* EZLayoutFlexibleRatio.m */; };
+		26278F271B30992400D9B58D /* EZLayoutAlignment+Private.m in Sources */ = {isa = PBXBuildFile; fileRef = 26278F261B30992400D9B58D /* EZLayoutAlignment+Private.m */; };
+		26278F2A1B31FD8100D9B58D /* EZLayoutSize+Private.m in Sources */ = {isa = PBXBuildFile; fileRef = 26278F291B31FD8100D9B58D /* EZLayoutSize+Private.m */; };
+		26724A931B10B2E9006CDCAE /* EZLayoutAlignment.m in Sources */ = {isa = PBXBuildFile; fileRef = 26724A921B10B2E9006CDCAE /* EZLayoutAlignment.m */; };
+		26724A9A1B10DD5A006CDCAE /* EZLayoutContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 26724A991B10DD5A006CDCAE /* EZLayoutContainerView.m */; };
+		26724A9D1B10DD8B006CDCAE /* UIDevice+EZLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 26724A9C1B10DD8B006CDCAE /* UIDevice+EZLayout.m */; };
+		26724AA31B1246E9006CDCAE /* UIView+EZLayout_Private.m in Sources */ = {isa = PBXBuildFile; fileRef = 26724AA21B1246E8006CDCAE /* UIView+EZLayout_Private.m */; };
+		26724AA71B14B79D006CDCAE /* EZLayoutDebugLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 26724AA61B14B79C006CDCAE /* EZLayoutDebugLayer.m */; };
+		268E80221B349DC900F446D0 /* EZLayoutExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 268E80211B349DC900F446D0 /* EZLayoutExampleViewController.m */; };
+		26E0FA7C1B25D2B1009BDF1B /* EZLayoutExampleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E0FA7B1B25D2B1009BDF1B /* EZLayoutExampleTableViewCell.m */; };
+		26E0FA7F1B25D2F0009BDF1B /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E0FA7E1B25D2F0009BDF1B /* TableViewController.m */; };
+		26E0FA821B2604FB009BDF1B /* EZLayoutContainerView+Private.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E0FA811B2604FB009BDF1B /* EZLayoutContainerView+Private.m */; };
+		26E50CF51B10A8DD00FB4FF6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E50CF41B10A8DD00FB4FF6 /* main.m */; };
+		26E50CF81B10A8DD00FB4FF6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E50CF71B10A8DD00FB4FF6 /* AppDelegate.m */; };
+		26E50CFB1B10A8DD00FB4FF6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E50CFA1B10A8DD00FB4FF6 /* ViewController.m */; };
+		26E50CFE1B10A8DD00FB4FF6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26E50CFC1B10A8DD00FB4FF6 /* Main.storyboard */; };
+		26E50D001B10A8DD00FB4FF6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26E50CFF1B10A8DD00FB4FF6 /* Images.xcassets */; };
+		26E50D031B10A8DD00FB4FF6 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26E50D011B10A8DD00FB4FF6 /* LaunchScreen.xib */; };
+		26E50D0F1B10A8DE00FB4FF6 /* EZLayoutExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E50D0E1B10A8DE00FB4FF6 /* EZLayoutExampleTests.m */; };
+		26E50D241B10AA2300FB4FF6 /* EZLayoutSize.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E50D231B10AA2300FB4FF6 /* EZLayoutSize.m */; };
+		26E50D281B10AA8900FB4FF6 /* UIView+EZLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E50D271B10AA8900FB4FF6 /* UIView+EZLayout.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		26E50D091B10A8DE00FB4FF6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 26E50CE71B10A8DD00FB4FF6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 26E50CEE1B10A8DD00FB4FF6;
+			remoteInfo = EZLayoutExample;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		26278F221B30905000D9B58D /* EZLayoutFlexibleRatio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EZLayoutFlexibleRatio.h; path = ../../EZLayout/EZLayoutFlexibleRatio.h; sourceTree = "<group>"; };
+		26278F231B30905000D9B58D /* EZLayoutFlexibleRatio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EZLayoutFlexibleRatio.m; path = ../../EZLayout/EZLayoutFlexibleRatio.m; sourceTree = "<group>"; };
+		26278F251B30992400D9B58D /* EZLayoutAlignment+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "EZLayoutAlignment+Private.h"; path = "../../EZLayout/EZLayoutAlignment+Private.h"; sourceTree = "<group>"; };
+		26278F261B30992400D9B58D /* EZLayoutAlignment+Private.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "EZLayoutAlignment+Private.m"; path = "../../EZLayout/EZLayoutAlignment+Private.m"; sourceTree = "<group>"; };
+		26278F281B31FD8100D9B58D /* EZLayoutSize+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "EZLayoutSize+Private.h"; path = "../../EZLayout/EZLayoutSize+Private.h"; sourceTree = "<group>"; };
+		26278F291B31FD8100D9B58D /* EZLayoutSize+Private.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "EZLayoutSize+Private.m"; path = "../../EZLayout/EZLayoutSize+Private.m"; sourceTree = "<group>"; };
+		26724A921B10B2E9006CDCAE /* EZLayoutAlignment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = EZLayoutAlignment.m; path = ../../EZLayout/EZLayoutAlignment.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		26724A981B10DD5A006CDCAE /* EZLayoutContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EZLayoutContainerView.h; path = ../../EZLayout/EZLayoutContainerView.h; sourceTree = "<group>"; };
+		26724A991B10DD5A006CDCAE /* EZLayoutContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = EZLayoutContainerView.m; path = ../../EZLayout/EZLayoutContainerView.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		26724A9B1B10DD8B006CDCAE /* UIDevice+EZLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIDevice+EZLayout.h"; path = "../../EZLayout/UIDevice+EZLayout.h"; sourceTree = "<group>"; };
+		26724A9C1B10DD8B006CDCAE /* UIDevice+EZLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIDevice+EZLayout.m"; path = "../../EZLayout/UIDevice+EZLayout.m"; sourceTree = "<group>"; };
+		26724AA11B1246E8006CDCAE /* UIView+EZLayout_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+EZLayout_Private.h"; path = "../../EZLayout/UIView+EZLayout_Private.h"; sourceTree = "<group>"; };
+		26724AA21B1246E8006CDCAE /* UIView+EZLayout_Private.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = "UIView+EZLayout_Private.m"; path = "../../EZLayout/UIView+EZLayout_Private.m"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		26724AA41B14758D006CDCAE /* EZLayoutConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = EZLayoutConstants.h; path = ../../EZLayout/EZLayoutConstants.h; sourceTree = "<group>"; };
+		26724AA51B14B79C006CDCAE /* EZLayoutDebugLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EZLayoutDebugLayer.h; path = ../../EZLayout/EZLayoutDebugLayer.h; sourceTree = "<group>"; };
+		26724AA61B14B79C006CDCAE /* EZLayoutDebugLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EZLayoutDebugLayer.m; path = ../../EZLayout/EZLayoutDebugLayer.m; sourceTree = "<group>"; };
+		268E80201B349DC900F446D0 /* EZLayoutExampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EZLayoutExampleViewController.h; sourceTree = "<group>"; };
+		268E80211B349DC900F446D0 /* EZLayoutExampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EZLayoutExampleViewController.m; sourceTree = "<group>"; };
+		26E0FA7A1B25D2B1009BDF1B /* EZLayoutExampleTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EZLayoutExampleTableViewCell.h; sourceTree = "<group>"; };
+		26E0FA7B1B25D2B1009BDF1B /* EZLayoutExampleTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EZLayoutExampleTableViewCell.m; sourceTree = "<group>"; };
+		26E0FA7D1B25D2F0009BDF1B /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
+		26E0FA7E1B25D2F0009BDF1B /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
+		26E0FA801B2604FB009BDF1B /* EZLayoutContainerView+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "EZLayoutContainerView+Private.h"; path = "../../EZLayout/EZLayoutContainerView+Private.h"; sourceTree = "<group>"; };
+		26E0FA811B2604FB009BDF1B /* EZLayoutContainerView+Private.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "EZLayoutContainerView+Private.m"; path = "../../EZLayout/EZLayoutContainerView+Private.m"; sourceTree = "<group>"; };
+		26E50CEF1B10A8DD00FB4FF6 /* EZLayoutExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EZLayoutExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		26E50CF31B10A8DD00FB4FF6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		26E50CF41B10A8DD00FB4FF6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		26E50CF61B10A8DD00FB4FF6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		26E50CF71B10A8DD00FB4FF6 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		26E50CF91B10A8DD00FB4FF6 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		26E50CFA1B10A8DD00FB4FF6 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		26E50CFD1B10A8DD00FB4FF6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		26E50CFF1B10A8DD00FB4FF6 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		26E50D021B10A8DD00FB4FF6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		26E50D081B10A8DE00FB4FF6 /* EZLayoutExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EZLayoutExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		26E50D0D1B10A8DE00FB4FF6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		26E50D0E1B10A8DE00FB4FF6 /* EZLayoutExampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EZLayoutExampleTests.m; sourceTree = "<group>"; };
+		26E50D1C1B10A9AD00FB4FF6 /* EZLayoutAlignment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EZLayoutAlignment.h; path = ../../EZLayout/EZLayoutAlignment.h; sourceTree = "<group>"; };
+		26E50D221B10AA2300FB4FF6 /* EZLayoutSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EZLayoutSize.h; path = ../../EZLayout/EZLayoutSize.h; sourceTree = "<group>"; };
+		26E50D231B10AA2300FB4FF6 /* EZLayoutSize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = EZLayoutSize.m; path = ../../EZLayout/EZLayoutSize.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		26E50D251B10AA4C00FB4FF6 /* EZLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = EZLayout.h; path = ../../EZLayout/EZLayout.h; sourceTree = "<group>"; };
+		26E50D261B10AA8900FB4FF6 /* UIView+EZLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+EZLayout.h"; path = "../../EZLayout/UIView+EZLayout.h"; sourceTree = "<group>"; };
+		26E50D271B10AA8900FB4FF6 /* UIView+EZLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+EZLayout.m"; path = "../../EZLayout/UIView+EZLayout.m"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		26E50CEC1B10A8DD00FB4FF6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		26E50D051B10A8DE00FB4FF6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		26278F2B1B31FDEC00D9B58D /* Private */ = {
+			isa = PBXGroup;
+			children = (
+				26278F281B31FD8100D9B58D /* EZLayoutSize+Private.h */,
+				26278F291B31FD8100D9B58D /* EZLayoutSize+Private.m */,
+				26278F251B30992400D9B58D /* EZLayoutAlignment+Private.h */,
+				26278F261B30992400D9B58D /* EZLayoutAlignment+Private.m */,
+				26724AA11B1246E8006CDCAE /* UIView+EZLayout_Private.h */,
+				26724AA21B1246E8006CDCAE /* UIView+EZLayout_Private.m */,
+				26E0FA801B2604FB009BDF1B /* EZLayoutContainerView+Private.h */,
+				26E0FA811B2604FB009BDF1B /* EZLayoutContainerView+Private.m */,
+			);
+			name = Private;
+			sourceTree = "<group>";
+		};
+		26E50CE61B10A8DD00FB4FF6 = {
+			isa = PBXGroup;
+			children = (
+				26E50CF11B10A8DD00FB4FF6 /* EZLayoutExample */,
+				26E50D0B1B10A8DE00FB4FF6 /* EZLayoutExampleTests */,
+				26E50CF01B10A8DD00FB4FF6 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		26E50CF01B10A8DD00FB4FF6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				26E50CEF1B10A8DD00FB4FF6 /* EZLayoutExample.app */,
+				26E50D081B10A8DE00FB4FF6 /* EZLayoutExampleTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		26E50CF11B10A8DD00FB4FF6 /* EZLayoutExample */ = {
+			isa = PBXGroup;
+			children = (
+				26E50D181B10A93800FB4FF6 /* EZLayout */,
+				26E50CF61B10A8DD00FB4FF6 /* AppDelegate.h */,
+				26E50CF71B10A8DD00FB4FF6 /* AppDelegate.m */,
+				268E80201B349DC900F446D0 /* EZLayoutExampleViewController.h */,
+				268E80211B349DC900F446D0 /* EZLayoutExampleViewController.m */,
+				26E50CF91B10A8DD00FB4FF6 /* ViewController.h */,
+				26E50CFA1B10A8DD00FB4FF6 /* ViewController.m */,
+				26E50CFC1B10A8DD00FB4FF6 /* Main.storyboard */,
+				26E50CFF1B10A8DD00FB4FF6 /* Images.xcassets */,
+				26E50D011B10A8DD00FB4FF6 /* LaunchScreen.xib */,
+				26E50CF21B10A8DD00FB4FF6 /* Supporting Files */,
+				26E0FA7A1B25D2B1009BDF1B /* EZLayoutExampleTableViewCell.h */,
+				26E0FA7B1B25D2B1009BDF1B /* EZLayoutExampleTableViewCell.m */,
+				26E0FA7D1B25D2F0009BDF1B /* TableViewController.h */,
+				26E0FA7E1B25D2F0009BDF1B /* TableViewController.m */,
+			);
+			path = EZLayoutExample;
+			sourceTree = "<group>";
+		};
+		26E50CF21B10A8DD00FB4FF6 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				26E50CF31B10A8DD00FB4FF6 /* Info.plist */,
+				26E50CF41B10A8DD00FB4FF6 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		26E50D0B1B10A8DE00FB4FF6 /* EZLayoutExampleTests */ = {
+			isa = PBXGroup;
+			children = (
+				26E50D0E1B10A8DE00FB4FF6 /* EZLayoutExampleTests.m */,
+				26E50D0C1B10A8DE00FB4FF6 /* Supporting Files */,
+			);
+			path = EZLayoutExampleTests;
+			sourceTree = "<group>";
+		};
+		26E50D0C1B10A8DE00FB4FF6 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				26E50D0D1B10A8DE00FB4FF6 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		26E50D181B10A93800FB4FF6 /* EZLayout */ = {
+			isa = PBXGroup;
+			children = (
+				26278F2B1B31FDEC00D9B58D /* Private */,
+				26724A981B10DD5A006CDCAE /* EZLayoutContainerView.h */,
+				26724A991B10DD5A006CDCAE /* EZLayoutContainerView.m */,
+				26E50D221B10AA2300FB4FF6 /* EZLayoutSize.h */,
+				26E50D231B10AA2300FB4FF6 /* EZLayoutSize.m */,
+				26E50D1C1B10A9AD00FB4FF6 /* EZLayoutAlignment.h */,
+				26724A921B10B2E9006CDCAE /* EZLayoutAlignment.m */,
+				26E50D251B10AA4C00FB4FF6 /* EZLayout.h */,
+				26E50D261B10AA8900FB4FF6 /* UIView+EZLayout.h */,
+				26E50D271B10AA8900FB4FF6 /* UIView+EZLayout.m */,
+				26724A9B1B10DD8B006CDCAE /* UIDevice+EZLayout.h */,
+				26724A9C1B10DD8B006CDCAE /* UIDevice+EZLayout.m */,
+				26724AA41B14758D006CDCAE /* EZLayoutConstants.h */,
+				26724AA51B14B79C006CDCAE /* EZLayoutDebugLayer.h */,
+				26724AA61B14B79C006CDCAE /* EZLayoutDebugLayer.m */,
+				26278F221B30905000D9B58D /* EZLayoutFlexibleRatio.h */,
+				26278F231B30905000D9B58D /* EZLayoutFlexibleRatio.m */,
+			);
+			name = EZLayout;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		26E50CEE1B10A8DD00FB4FF6 /* EZLayoutExample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 26E50D121B10A8DE00FB4FF6 /* Build configuration list for PBXNativeTarget "EZLayoutExample" */;
+			buildPhases = (
+				26E50CEB1B10A8DD00FB4FF6 /* Sources */,
+				26E50CEC1B10A8DD00FB4FF6 /* Frameworks */,
+				26E50CED1B10A8DD00FB4FF6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = EZLayoutExample;
+			productName = EZLayoutExample;
+			productReference = 26E50CEF1B10A8DD00FB4FF6 /* EZLayoutExample.app */;
+			productType = "com.apple.product-type.application";
+		};
+		26E50D071B10A8DE00FB4FF6 /* EZLayoutExampleTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 26E50D151B10A8DE00FB4FF6 /* Build configuration list for PBXNativeTarget "EZLayoutExampleTests" */;
+			buildPhases = (
+				26E50D041B10A8DE00FB4FF6 /* Sources */,
+				26E50D051B10A8DE00FB4FF6 /* Frameworks */,
+				26E50D061B10A8DE00FB4FF6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				26E50D0A1B10A8DE00FB4FF6 /* PBXTargetDependency */,
+			);
+			name = EZLayoutExampleTests;
+			productName = EZLayoutExampleTests;
+			productReference = 26E50D081B10A8DE00FB4FF6 /* EZLayoutExampleTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		26E50CE71B10A8DD00FB4FF6 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = "Jeff Hurray";
+				TargetAttributes = {
+					26E50CEE1B10A8DD00FB4FF6 = {
+						CreatedOnToolsVersion = 6.3.1;
+					};
+					26E50D071B10A8DE00FB4FF6 = {
+						CreatedOnToolsVersion = 6.3.1;
+						TestTargetID = 26E50CEE1B10A8DD00FB4FF6;
+					};
+				};
+			};
+			buildConfigurationList = 26E50CEA1B10A8DD00FB4FF6 /* Build configuration list for PBXProject "EZLayoutExample" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 26E50CE61B10A8DD00FB4FF6;
+			productRefGroup = 26E50CF01B10A8DD00FB4FF6 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				26E50CEE1B10A8DD00FB4FF6 /* EZLayoutExample */,
+				26E50D071B10A8DE00FB4FF6 /* EZLayoutExampleTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		26E50CED1B10A8DD00FB4FF6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				26E50CFE1B10A8DD00FB4FF6 /* Main.storyboard in Resources */,
+				26E50D031B10A8DD00FB4FF6 /* LaunchScreen.xib in Resources */,
+				26E50D001B10A8DD00FB4FF6 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		26E50D061B10A8DE00FB4FF6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		26E50CEB1B10A8DD00FB4FF6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				26724AA71B14B79D006CDCAE /* EZLayoutDebugLayer.m in Sources */,
+				26E50CFB1B10A8DD00FB4FF6 /* ViewController.m in Sources */,
+				26E50CF81B10A8DD00FB4FF6 /* AppDelegate.m in Sources */,
+				26E50D241B10AA2300FB4FF6 /* EZLayoutSize.m in Sources */,
+				26E50D281B10AA8900FB4FF6 /* UIView+EZLayout.m in Sources */,
+				26724A9D1B10DD8B006CDCAE /* UIDevice+EZLayout.m in Sources */,
+				26724A9A1B10DD5A006CDCAE /* EZLayoutContainerView.m in Sources */,
+				268E80221B349DC900F446D0 /* EZLayoutExampleViewController.m in Sources */,
+				26E0FA7F1B25D2F0009BDF1B /* TableViewController.m in Sources */,
+				26278F271B30992400D9B58D /* EZLayoutAlignment+Private.m in Sources */,
+				26278F2A1B31FD8100D9B58D /* EZLayoutSize+Private.m in Sources */,
+				26724A931B10B2E9006CDCAE /* EZLayoutAlignment.m in Sources */,
+				26E0FA7C1B25D2B1009BDF1B /* EZLayoutExampleTableViewCell.m in Sources */,
+				26278F241B30905000D9B58D /* EZLayoutFlexibleRatio.m in Sources */,
+				26E50CF51B10A8DD00FB4FF6 /* main.m in Sources */,
+				26724AA31B1246E9006CDCAE /* UIView+EZLayout_Private.m in Sources */,
+				26E0FA821B2604FB009BDF1B /* EZLayoutContainerView+Private.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		26E50D041B10A8DE00FB4FF6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				26E50D0F1B10A8DE00FB4FF6 /* EZLayoutExampleTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		26E50D0A1B10A8DE00FB4FF6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 26E50CEE1B10A8DD00FB4FF6 /* EZLayoutExample */;
+			targetProxy = 26E50D091B10A8DE00FB4FF6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		26E50CFC1B10A8DD00FB4FF6 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				26E50CFD1B10A8DD00FB4FF6 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		26E50D011B10A8DD00FB4FF6 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				26E50D021B10A8DD00FB4FF6 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		26E50D101B10A8DE00FB4FF6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		26E50D111B10A8DE00FB4FF6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		26E50D131B10A8DE00FB4FF6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = EZLayoutExample/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		26E50D141B10A8DE00FB4FF6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = EZLayoutExample/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		26E50D161B10A8DE00FB4FF6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = EZLayoutExampleTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EZLayoutExample.app/EZLayoutExample";
+			};
+			name = Debug;
+		};
+		26E50D171B10A8DE00FB4FF6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = EZLayoutExampleTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EZLayoutExample.app/EZLayoutExample";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		26E50CEA1B10A8DD00FB4FF6 /* Build configuration list for PBXProject "EZLayoutExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				26E50D101B10A8DE00FB4FF6 /* Debug */,
+				26E50D111B10A8DE00FB4FF6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		26E50D121B10A8DE00FB4FF6 /* Build configuration list for PBXNativeTarget "EZLayoutExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				26E50D131B10A8DE00FB4FF6 /* Debug */,
+				26E50D141B10A8DE00FB4FF6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		26E50D151B10A8DE00FB4FF6 /* Build configuration list for PBXNativeTarget "EZLayoutExampleTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				26E50D161B10A8DE00FB4FF6 /* Debug */,
+				26E50D171B10A8DE00FB4FF6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 26E50CE71B10A8DD00FB4FF6 /* Project object */;
+}
