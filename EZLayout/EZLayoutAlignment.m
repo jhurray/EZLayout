@@ -19,94 +19,116 @@
 
 -(instancetype) init {
     if (self = [super init]) {
-        self.topPaddingPercentage = NAN;
-        self.bottomPaddingPercentage = NAN;
-        self.leftPaddingPercentage = NAN;
-        self.rightPaddingPercentage = NAN;
-        self.topPaddingFixed = NAN;
-        self.bottomPaddingFixed = NAN;
-        self.leftPaddingFixed = NAN;
-        self.rightPaddingFixed = NAN;
+        self.topMarginPercentage = NAN;
+        self.bottomMarginPercentage = NAN;
+        self.leftMarginPercentage = NAN;
+        self.rightMarginPercentage = NAN;
+        self.topMarginFixed = NAN;
+        self.bottomMarginFixed = NAN;
+        self.leftMarginFixed = NAN;
+        self.rightMarginFixed = NAN;
         self.type = EZLayoutAlignmentTypeCenter;
     }
     return self;
 }
+
+#pragma mark - Absolute
 
 + (instancetype) center {
     EZLayoutAlignment *alignment = [[EZLayoutAlignment alloc] init];
     return alignment;
 }
 
++ (instancetype) top {
+    return [self topPercentage:0.0];
+}
+
++ (instancetype) bottom {
+    return [self bottomPercentage:0.0];
+}
+
++ (instancetype) left {
+    return [self leftPercentage:0.0];
+}
+
++ (instancetype) right {
+    return [self rightPercentage:0.0];
+}
+
++ (instancetype) topLeft {
+    return [self topPercentage:0.0 leftPercentage:0.0];
+}
+
++ (instancetype) topRight {
+    return [self topPercentage:0.0 rightPercentage:0.0];
+}
+
++ (instancetype) bottomLeft {
+    return [self bottomPercentage:0.0 leftPercentage:0.0];
+}
+
++ (instancetype) bottomRight {
+    return [self bottomPercentage:0.0 rightPercentage:0.0];
+}
+
 #pragma mark - Percentage
 
-+ (instancetype) topPercentage:(CGFloat)topPaddingPercentage {
-    [self paddingPercentageValueCheck:topPaddingPercentage];
++ (instancetype) topPercentage:(CGFloat)topMarginPercentage {
     EZLayoutAlignment *alignment = [[EZLayoutAlignment alloc] init];
-    alignment.topPaddingPercentage = topPaddingPercentage;
+    alignment.topMarginPercentage = topMarginPercentage;
     alignment.type = EZLayoutAlignmentTypeTopPercentage;
     return alignment;
 }
 
-+ (instancetype) bottomPercentage:(CGFloat)bottomPaddingPercentage {
-    [self paddingPercentageValueCheck:bottomPaddingPercentage];
++ (instancetype) bottomPercentage:(CGFloat)bottomMarginPercentage {
     EZLayoutAlignment *alignment = [[EZLayoutAlignment alloc] init];
-    alignment.bottomPaddingPercentage = bottomPaddingPercentage;
+    alignment.bottomMarginPercentage = bottomMarginPercentage;
     alignment.type = EZLayoutAlignmentTypeBottomPercentage;
     return alignment;
 }
 
-+ (instancetype) leftPercentage:(CGFloat)leftPaddingPercentage {
-    [self paddingPercentageValueCheck:leftPaddingPercentage];
++ (instancetype) leftPercentage:(CGFloat)leftMarginPercentage {
     EZLayoutAlignment *alignment = [[EZLayoutAlignment alloc] init];
-    alignment.leftPaddingPercentage = leftPaddingPercentage;
+    alignment.leftMarginPercentage = leftMarginPercentage;
     alignment.type = EZLayoutAlignmentTypeLeftPercentage;
     return alignment;
 }
 
-+ (instancetype) rightPercentage:(CGFloat)rightPaddingPercentage {
-    [self paddingPercentageValueCheck:rightPaddingPercentage];
++ (instancetype) rightPercentage:(CGFloat)rightMarginPercentage {
     EZLayoutAlignment *alignment = [[EZLayoutAlignment alloc] init];
-    alignment.rightPaddingPercentage = rightPaddingPercentage;
+    alignment.rightMarginPercentage = rightMarginPercentage;
     alignment.type = EZLayoutAlignmentTypeRightPercentage;
     return alignment;
 }
 
-+ (instancetype) topPercentage:(CGFloat)topPaddingPercentage leftPercentage:(CGFloat)leftPaddingPercentage {
-    [self paddingPercentageValueCheck:topPaddingPercentage];
-    [self paddingPercentageValueCheck:leftPaddingPercentage];
++ (instancetype) topPercentage:(CGFloat)topMarginPercentage leftPercentage:(CGFloat)leftMarginPercentage {
     EZLayoutAlignment *alignment = [[EZLayoutAlignment alloc] init];
-    alignment.topPaddingPercentage = topPaddingPercentage;
-    alignment.leftPaddingPercentage = leftPaddingPercentage;
+    alignment.topMarginPercentage = topMarginPercentage;
+    alignment.leftMarginPercentage = leftMarginPercentage;
     alignment.type = EZLayoutAlignmentTypeTopPercentageLeftPercentage;
     return alignment;
 }
 
-+ (instancetype) topPercentage:(CGFloat)topPaddingPercentage rightPercentage:(CGFloat)rightPaddingPercentage {
-    [self paddingPercentageValueCheck:topPaddingPercentage];
-    [self paddingPercentageValueCheck:rightPaddingPercentage];
++ (instancetype) topPercentage:(CGFloat)topMarginPercentage rightPercentage:(CGFloat)rightMarginPercentage {
     EZLayoutAlignment *alignment = [[EZLayoutAlignment alloc] init];
-    alignment.topPaddingPercentage = topPaddingPercentage;
-    alignment.rightPaddingPercentage = rightPaddingPercentage;
+    alignment.topMarginPercentage = topMarginPercentage;
+    alignment.rightMarginPercentage = rightMarginPercentage;
     alignment.type = EZLayoutAlignmentTypeTopPercentageRightPercentage;
     return alignment;
 }
 
-+ (instancetype) bottomPercentage:(CGFloat)bottomPaddingPercentage leftPercentage:(CGFloat)leftPaddingPercentage {
-    [self paddingPercentageValueCheck:bottomPaddingPercentage];
-    [self paddingPercentageValueCheck:leftPaddingPercentage];
++ (instancetype) bottomPercentage:(CGFloat)bottomMarginPercentage leftPercentage:(CGFloat)leftMarginPercentage {
     EZLayoutAlignment *alignment = [[EZLayoutAlignment alloc] init];
-    alignment.bottomPaddingPercentage = bottomPaddingPercentage;
-    alignment.leftPaddingPercentage = leftPaddingPercentage;
+    alignment.bottomMarginPercentage = bottomMarginPercentage;
+    alignment.leftMarginPercentage = leftMarginPercentage;
     alignment.type = EZLayoutAlignmentTypeBottomPercentageLeftPercentage;
     return alignment;
 }
 
-+ (instancetype) bottomPercentage:(CGFloat)bottomPaddingPercentage rightPercentage:(CGFloat)rightPaddingPercentage {
-    [self paddingPercentageValueCheck:bottomPaddingPercentage];
-    [self paddingPercentageValueCheck:rightPaddingPercentage];
++ (instancetype) bottomPercentage:(CGFloat)bottomMarginPercentage rightPercentage:(CGFloat)rightMarginPercentage {
     EZLayoutAlignment *alignment = [[EZLayoutAlignment alloc] init];
-    alignment.bottomPaddingPercentage = bottomPaddingPercentage;
-    alignment.rightPaddingPercentage = rightPaddingPercentage;
+    alignment.bottomMarginPercentage = bottomMarginPercentage;
+    alignment.rightMarginPercentage = rightMarginPercentage;
     alignment.type = EZLayoutAlignmentTypeBottomPercentageRightPercentage;
     return alignment;
 }
@@ -114,62 +136,62 @@
 
 #pragma mark - Fixed
 
-+ (instancetype) topFixed:(CGFloat)topPaddingFixed {
++ (instancetype) topFixed:(CGFloat)topMarginFixed {
     EZLayoutAlignment *alignment = [[EZLayoutAlignment alloc] init];
-    alignment.topPaddingFixed = topPaddingFixed;
+    alignment.topMarginFixed = topMarginFixed;
     alignment.type = EZLayoutAlignmentTypeTopFixed;
     return alignment;
 }
 
-+ (instancetype) bottomFixed:(CGFloat)bottomPaddingFixed {
++ (instancetype) bottomFixed:(CGFloat)bottomMarginFixed {
     EZLayoutAlignment *alignment = [[EZLayoutAlignment alloc] init];
-    alignment.bottomPaddingFixed = bottomPaddingFixed;
+    alignment.bottomMarginFixed = bottomMarginFixed;
     alignment.type = EZLayoutAlignmentTypeBottomFixed;
     return alignment;
 }
 
-+ (instancetype) leftFixed:(CGFloat)leftPaddingFixed {
++ (instancetype) leftFixed:(CGFloat)leftMarginFixed {
     EZLayoutAlignment *alignment = [[EZLayoutAlignment alloc] init];
-    alignment.leftPaddingFixed = leftPaddingFixed;
+    alignment.leftMarginFixed = leftMarginFixed;
     alignment.type = EZLayoutAlignmentTypeLeftFixed;
     return alignment;
 }
 
-+ (instancetype) rightFixed:(CGFloat)rightPaddingFixed {
++ (instancetype) rightFixed:(CGFloat)rightMarginFixed {
     EZLayoutAlignment *alignment = [[EZLayoutAlignment alloc] init];
-    alignment.rightPaddingFixed = rightPaddingFixed;
+    alignment.rightMarginFixed = rightMarginFixed;
     alignment.type = EZLayoutAlignmentTypeRightFixed;
     return alignment;
 }
 
-+ (instancetype) topFixed:(CGFloat)topPaddingFixed leftFixed:(CGFloat)leftPaddingFixed {
++ (instancetype) topFixed:(CGFloat)topMarginFixed leftFixed:(CGFloat)leftMarginFixed {
     EZLayoutAlignment *alignment = [[EZLayoutAlignment alloc] init];
-    alignment.topPaddingFixed = topPaddingFixed;
-    alignment.leftPaddingFixed = leftPaddingFixed;
+    alignment.topMarginFixed = topMarginFixed;
+    alignment.leftMarginFixed = leftMarginFixed;
     alignment.type = EZLayoutAlignmentTypeTopFixedLeftFixed;
     return alignment;
 }
 
-+ (instancetype) topFixed:(CGFloat)topPaddingFixed rightFixed:(CGFloat)rightPaddingFixed {
++ (instancetype) topFixed:(CGFloat)topMarginFixed rightFixed:(CGFloat)rightMarginFixed {
     EZLayoutAlignment *alignment = [[EZLayoutAlignment alloc] init];
-    alignment.topPaddingFixed = topPaddingFixed;
-    alignment.rightPaddingFixed = rightPaddingFixed;
+    alignment.topMarginFixed = topMarginFixed;
+    alignment.rightMarginFixed = rightMarginFixed;
     alignment.type = EZLayoutAlignmentTypeTopFixedRightFixed;
     return alignment;
 }
 
-+ (instancetype) bottomFixed:(CGFloat)bottomPaddingFixed leftFixed:(CGFloat)leftPaddingFixed {
++ (instancetype) bottomFixed:(CGFloat)bottomMarginFixed leftFixed:(CGFloat)leftMarginFixed {
     EZLayoutAlignment *alignment = [[EZLayoutAlignment alloc] init];
-    alignment.bottomPaddingFixed = bottomPaddingFixed;
-    alignment.leftPaddingFixed = leftPaddingFixed;
+    alignment.bottomMarginFixed = bottomMarginFixed;
+    alignment.leftMarginFixed = leftMarginFixed;
     alignment.type = EZLayoutAlignmentTypeBottomFixedLeftFixed;
     return alignment;
 }
 
-+ (instancetype) bottomFixed:(CGFloat)bottomPaddingFixed rightFixed:(CGFloat)rightPaddingFixed {
++ (instancetype) bottomFixed:(CGFloat)bottomMarginFixed rightFixed:(CGFloat)rightMarginFixed {
     EZLayoutAlignment *alignment = [[EZLayoutAlignment alloc] init];
-    alignment.bottomPaddingFixed = bottomPaddingFixed;
-    alignment.rightPaddingFixed = rightPaddingFixed;
+    alignment.bottomMarginFixed = bottomMarginFixed;
+    alignment.rightMarginFixed = rightMarginFixed;
     alignment.type = EZLayoutAlignmentTypeBottomFixedRightFixed;
     return alignment;
 }
@@ -177,85 +199,72 @@
 
 #pragma mark - Percentage + Fixed
 
-+ (instancetype) topPercentage:(CGFloat)topPaddingPercentage leftFixed:(CGFloat)leftPaddingFixed {
-    [self paddingPercentageValueCheck:topPaddingPercentage];
++ (instancetype) topPercentage:(CGFloat)topMarginPercentage leftFixed:(CGFloat)leftMarginFixed {
     EZLayoutAlignment *alignment = [[EZLayoutAlignment alloc] init];
-    alignment.topPaddingPercentage = topPaddingPercentage;
-    alignment.leftPaddingFixed = leftPaddingFixed;
+    alignment.topMarginPercentage = topMarginPercentage;
+    alignment.leftMarginFixed = leftMarginFixed;
     alignment.type = EZLayoutAlignmentTypeTopPercentageLeftFixed;
     return alignment;
 }
 
-+ (instancetype) topFixed:(CGFloat)topPaddingFixed leftPercentage:(CGFloat)leftPaddingPercentage {
-    [self paddingPercentageValueCheck:leftPaddingPercentage];
++ (instancetype) topFixed:(CGFloat)topMarginFixed leftPercentage:(CGFloat)leftMarginPercentage {
     EZLayoutAlignment *alignment = [[EZLayoutAlignment alloc] init];
-    alignment.topPaddingFixed = topPaddingFixed;
-    alignment.leftPaddingPercentage = leftPaddingPercentage;
+    alignment.topMarginFixed = topMarginFixed;
+    alignment.leftMarginPercentage = leftMarginPercentage;
     alignment.type = EZLayoutAlignmentTypeTopFixedLeftPercentage;
     return alignment;
 }
 
-+ (instancetype) topPercentage:(CGFloat)topPaddingPercentage rightFixed:(CGFloat)rightPaddingFixed {
-    [self paddingPercentageValueCheck:topPaddingPercentage];
++ (instancetype) topPercentage:(CGFloat)topMarginPercentage rightFixed:(CGFloat)rightMarginFixed {
     EZLayoutAlignment *alignment = [[EZLayoutAlignment alloc] init];
-    alignment.topPaddingPercentage = topPaddingPercentage;
-    alignment.rightPaddingFixed = rightPaddingFixed;
+    alignment.topMarginPercentage = topMarginPercentage;
+    alignment.rightMarginFixed = rightMarginFixed;
     alignment.type = EZLayoutAlignmentTypeTopPercentageRightFixed;
     return alignment;
 }
 
-+ (instancetype) topFixed:(CGFloat)topPaddingFixed rightPercentage:(CGFloat)rightPaddingPercentage {
-    [self paddingPercentageValueCheck:rightPaddingPercentage];
++ (instancetype) topFixed:(CGFloat)topMarginFixed rightPercentage:(CGFloat)rightMarginPercentage {
     EZLayoutAlignment *alignment = [[EZLayoutAlignment alloc] init];
-    alignment.topPaddingFixed = topPaddingFixed;
-    alignment.rightPaddingPercentage = rightPaddingPercentage;
+    alignment.topMarginFixed = topMarginFixed;
+    alignment.rightMarginPercentage = rightMarginPercentage;
     alignment.type = EZLayoutAlignmentTypeTopFixedRightPercentage;
     return alignment;
 }
 
-+ (instancetype) bottomPercentage:(CGFloat)bottomPaddingPercentage leftFixed:(CGFloat)leftPaddingFixed {
-    [self paddingPercentageValueCheck:bottomPaddingPercentage];
++ (instancetype) bottomPercentage:(CGFloat)bottomMarginPercentage leftFixed:(CGFloat)leftMarginFixed {
     EZLayoutAlignment *alignment = [[EZLayoutAlignment alloc] init];
-    alignment.bottomPaddingPercentage = bottomPaddingPercentage;
-    alignment.leftPaddingFixed = leftPaddingFixed;
+    alignment.bottomMarginPercentage = bottomMarginPercentage;
+    alignment.leftMarginFixed = leftMarginFixed;
     alignment.type = EZLayoutAlignmentTypeBottomPercentageLeftFixed;
     return alignment;
 }
 
-+ (instancetype) bottomFixed:(CGFloat)bottomPaddingFixed leftPercentage:(CGFloat)leftPaddingPercentage {
-    [self paddingPercentageValueCheck:leftPaddingPercentage];
++ (instancetype) bottomFixed:(CGFloat)bottomMarginFixed leftPercentage:(CGFloat)leftMarginPercentage {
     EZLayoutAlignment *alignment = [[EZLayoutAlignment alloc] init];
-    alignment.bottomPaddingFixed = bottomPaddingFixed;
-    alignment.leftPaddingPercentage = leftPaddingPercentage;
+    alignment.bottomMarginFixed = bottomMarginFixed;
+    alignment.leftMarginPercentage = leftMarginPercentage;
     alignment.type = EZLayoutAlignmentTypeBottomFixedLeftPercentage;
     return alignment;
 }
 
-+ (instancetype) bottomPercentage:(CGFloat)bottomPaddingPercentage rightFixed:(CGFloat)rightPaddingFixed {
-    [self paddingPercentageValueCheck:bottomPaddingPercentage];
++ (instancetype) bottomPercentage:(CGFloat)bottomMarginPercentage rightFixed:(CGFloat)rightMarginFixed {
     EZLayoutAlignment *alignment = [[EZLayoutAlignment alloc] init];
-    alignment.bottomPaddingPercentage = bottomPaddingPercentage;
-    alignment.rightPaddingFixed = rightPaddingFixed;
+    alignment.bottomMarginPercentage = bottomMarginPercentage;
+    alignment.rightMarginFixed = rightMarginFixed;
     alignment.type = EZLayoutAlignmentTypeBottomPercentageRightFixed;
     return alignment;
 }
 
-+ (instancetype) bottomFixed:(CGFloat)bottomPaddingFixed rightPercentage:(CGFloat)rightPaddingPercentage {
-    [self paddingPercentageValueCheck:rightPaddingPercentage];
++ (instancetype) bottomFixed:(CGFloat)bottomMarginFixed rightPercentage:(CGFloat)rightMarginPercentage {
     EZLayoutAlignment *alignment = [[EZLayoutAlignment alloc] init];
-    alignment.bottomPaddingFixed = bottomPaddingFixed;
-    alignment.rightPaddingPercentage = rightPaddingPercentage;
+    alignment.bottomMarginFixed = bottomMarginFixed;
+    alignment.rightMarginPercentage = rightMarginPercentage;
     alignment.type = EZLayoutAlignmentTypeBottomFixedRightPercentage;
     return alignment;
 }
 
-+ (void) paddingPercentageValueCheck:(CGFloat) paddingPercentage {
-    BOOL isGucci = (paddingPercentage >= 0.0) && (paddingPercentage <= 1.0);
-    //NSAssert(isGucci, @"EZLayout Fatal Error: EZLayoutAlignment padding percentages need to be between 0.0 and 1.0");
-}
-
 - (NSString *) description {
-    return [NSString stringWithFormat:@"EZLayoutAlignment:\nPercentages:\n topPercent: %f, bottomPercent: %f, leftPercent: %f, rightPercent: %f\n\nFixed:\n topFixed: %f, bottomFixed: %f, leftFixed: %f, rightFixed: %f\n", self.topPaddingPercentage, self.bottomPaddingPercentage, self.leftPaddingPercentage, self.rightPaddingPercentage, self.topPaddingFixed, self.bottomPaddingFixed, self.leftPaddingFixed, self.rightPaddingFixed];
+    return [NSString stringWithFormat:@"EZLayoutAlignment:\nPercentages:\n topPercent: %f, bottomPercent: %f, leftPercent: %f, rightPercent: %f\n\nFixed:\n topFixed: %f, bottomFixed: %f, leftFixed: %f, rightFixed: %f\n", self.topMarginPercentage, self.bottomMarginPercentage, self.leftMarginPercentage, self.rightMarginPercentage, self.topMarginFixed, self.bottomMarginFixed, self.leftMarginFixed, self.rightMarginFixed];
 }
 
 @end

@@ -14,6 +14,7 @@
 // Basic init
 + (instancetype) container;
 // Initializers for portrait mode
++ (instancetype) containerFilledWithView:(UIView *)view;
 + (instancetype) containerWithHorizontalViews:(NSArray *)views percentages:(NSArray *)percentages;
 + (instancetype) containerWithVerticalViews:(NSArray *)views percentages:(NSArray *)percentages;
 + (instancetype) containerWithHorizontalViews:(NSArray *)views fixedWidths:(NSArray *)fixedWidths;
@@ -33,6 +34,7 @@
 
 #pragma mark - Instance Initializers
 // Initializers for portrait mode
+- (instancetype) initWithViewToFill:(UIView *)view;
 - (instancetype) initWithHorizontalViews:(NSArray *)views percentages:(NSArray *)percentages;
 - (instancetype) initWithVerticalViews:(NSArray *)views percentages:(NSArray *)percentages;
 - (instancetype) initWithHorizontalViews:(NSArray *)views fixedWidths:(NSArray *)fixedWidths;
@@ -60,6 +62,9 @@
 @property (nonatomic, strong, readonly) NSArray *views;
 @property (nonatomic, strong, readonly) NSArray *percentages;
 
+/* Fill */
+- (void) fillWithView:(UIView *)view;
+
 /* Dynamic */
 // lays out views left to right
 - (void) horizontallyLayoutViews:(NSArray *)views withPercentages:(NSArray *)percentages;
@@ -77,6 +82,9 @@
 // If nil and portrait supported, will translate to portrait layout
 @property (nonatomic, strong, readonly) NSArray *landscapeViews;
 @property (nonatomic, strong, readonly) NSArray *landscapePercentages;
+
+/* Fill */
+- (void) fillWithLandscapeView:(UIView *)view;
 
 /* Dynamic */
 // lays out views left to right

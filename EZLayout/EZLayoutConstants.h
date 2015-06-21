@@ -9,6 +9,13 @@
 #ifndef EZLayoutExample_EZLayoutConstants_h
 #define EZLayoutExample_EZLayoutConstants_h
 
+
+/* DEBUG */
+// YES: Dotted Lines will appear around all views to show their containment.
+// NO: No dotted lines around views
+#define kEZDebugMode NO
+
+
 /* LAYOUT CONTAINTERS */
 
 //Use this for blank space in a view
@@ -16,10 +23,6 @@
 #define kEZLayoutBlankSpace [NSNull null]
 // Shorthand syntax
 #define kEZBlankSpace kEZLayoutBlankSpace
-
-/* DEBUG */
-
-#define kEZDebugMode NO
 
 /* WORDS */
 

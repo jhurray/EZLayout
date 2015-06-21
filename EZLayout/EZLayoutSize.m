@@ -93,12 +93,11 @@
 }
 
 + (void) sizePercentageValueCheck:(CGFloat) sizePercentage {
-    BOOL isGucci = (sizePercentage >= 0.0) && (sizePercentage <= 1.0);
-    //NSAssert(isGucci, @"EZLayout Fatal Error: EZLayoutSize percentages need to be between 0.0 and 1.0");
+    NSAssert(sizePercentage >= 0.0, @"EZLayout Fatal Error: EZLayoutSize percentages need to be greater than 0.0");
 }
 
 - (NSString *) description {
-    return [NSString stringWithFormat:@"EZLayoutSize: widthPercentage: %f, heightPercentage: %f, scaleFactor: %f, fixedWidth: %f, fixedHeight: %f", self.widthPercentage, self.heightPercentage, self.scaleFactor, self.fixedWidth, self.fixedHeight];
+    return [NSString stringWithFormat:@"EZLayoutSize: \nwidthPercentage: %f, heightPercentage: %f, \nscaleFactor: %f, \nfixedWidth: %f, fixedHeight: %f", self.widthPercentage, self.heightPercentage, self.scaleFactor, self.fixedWidth, self.fixedHeight];
 }
 
 @end

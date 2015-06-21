@@ -13,59 +13,67 @@
 
 /***
 
- All percentage padding should be in percentages (1.0 >= padding >= 0.0).
+ All percentage margin should be in percentages (1.0 >= margin >= 0.0).
  
 ***/
 
-#pragma mark - Default
+#pragma mark - Absolute
 
-+ (instancetype) center;
++ (instancetype) center; // default val
++ (instancetype) top;
++ (instancetype) bottom;
++ (instancetype) left;
++ (instancetype) right;
++ (instancetype) topLeft;
++ (instancetype) topRight;
++ (instancetype) bottomLeft;
++ (instancetype) bottomRight;
 
 #pragma mark - Percentage
 
-+ (instancetype) topPercentage:(CGFloat)topPaddingPercentage;
-+ (instancetype) bottomPercentage:(CGFloat)bottomPaddingPercentage;
-+ (instancetype) leftPercentage:(CGFloat)leftPaddingPercentage;
-+ (instancetype) rightPercentage:(CGFloat)rightPaddingPercentage;
-+ (instancetype) topPercentage:(CGFloat)topPaddingPercentage leftPercentage:(CGFloat)leftPaddingPercentage;
-+ (instancetype) topPercentage:(CGFloat)topPaddingPercentage rightPercentage:(CGFloat)rightPaddingPercentage;
-+ (instancetype) bottomPercentage:(CGFloat)bottomPaddingPercentage leftPercentage:(CGFloat)leftPaddingPercentage;
-+ (instancetype) bottomPercentage:(CGFloat)bottomPaddingPercentage rightPercentage:(CGFloat)rightPaddingPercentage;
++ (instancetype) topPercentage:(CGFloat)topMarginPercentage;
++ (instancetype) bottomPercentage:(CGFloat)bottomMarginPercentage;
++ (instancetype) leftPercentage:(CGFloat)leftMarginPercentage;
++ (instancetype) rightPercentage:(CGFloat)rightMarginPercentage;
++ (instancetype) topPercentage:(CGFloat)topMarginPercentage leftPercentage:(CGFloat)leftMarginPercentage;
++ (instancetype) topPercentage:(CGFloat)topMarginPercentage rightPercentage:(CGFloat)rightMarginPercentage;
++ (instancetype) bottomPercentage:(CGFloat)bottomMarginPercentage leftPercentage:(CGFloat)leftMarginPercentage;
++ (instancetype) bottomPercentage:(CGFloat)bottomMarginPercentage rightPercentage:(CGFloat)rightMarginPercentage;
 
-@property (nonatomic) CGFloat topPaddingPercentage;
-@property (nonatomic) CGFloat bottomPaddingPercentage;
-@property (nonatomic) CGFloat leftPaddingPercentage;
-@property (nonatomic) CGFloat rightPaddingPercentage;
+@property (nonatomic) CGFloat topMarginPercentage;
+@property (nonatomic) CGFloat bottomMarginPercentage;
+@property (nonatomic) CGFloat leftMarginPercentage;
+@property (nonatomic) CGFloat rightMarginPercentage;
 
 #pragma mark - Fixed
 
-+ (instancetype) topFixed:(CGFloat)topPaddingFixed;
-+ (instancetype) bottomFixed:(CGFloat)bottomPaddingFixed;
-+ (instancetype) leftFixed:(CGFloat)leftPaddingFixed;
-+ (instancetype) rightFixed:(CGFloat)rightPaddingFixed;
-+ (instancetype) topFixed:(CGFloat)topPaddingFixed leftFixed:(CGFloat)leftPaddingFixed;
-+ (instancetype) topFixed:(CGFloat)topPaddingFixed rightFixed:(CGFloat)rightPaddingFixed;
-+ (instancetype) bottomFixed:(CGFloat)bottomPaddingFixed leftFixed:(CGFloat)leftPaddingFixed;
-+ (instancetype) bottomFixed:(CGFloat)bottomPaddingFixed rightFixed:(CGFloat)rightPaddingFixed;
++ (instancetype) topFixed:(CGFloat)topMarginFixed;
++ (instancetype) bottomFixed:(CGFloat)bottomMarginFixed;
++ (instancetype) leftFixed:(CGFloat)leftMarginFixed;
++ (instancetype) rightFixed:(CGFloat)rightMarginFixed;
++ (instancetype) topFixed:(CGFloat)topMarginFixed leftFixed:(CGFloat)leftMarginFixed;
++ (instancetype) topFixed:(CGFloat)topMarginFixed rightFixed:(CGFloat)rightMarginFixed;
++ (instancetype) bottomFixed:(CGFloat)bottomMarginFixed leftFixed:(CGFloat)leftMarginFixed;
++ (instancetype) bottomFixed:(CGFloat)bottomMarginFixed rightFixed:(CGFloat)rightMarginFixed;
 
-@property (nonatomic) CGFloat topPaddingFixed;
-@property (nonatomic) CGFloat bottomPaddingFixed;
-@property (nonatomic) CGFloat leftPaddingFixed;
-@property (nonatomic) CGFloat rightPaddingFixed;
+@property (nonatomic) CGFloat topMarginFixed;
+@property (nonatomic) CGFloat bottomMarginFixed;
+@property (nonatomic) CGFloat leftMarginFixed;
+@property (nonatomic) CGFloat rightMarginFixed;
 
 #pragma mark - Percentage + Fixed
 
-+ (instancetype) topPercentage:(CGFloat)topPaddingPercentage leftFixed:(CGFloat)leftPaddingFixed;
-+ (instancetype) topFixed:(CGFloat)topPaddingFixed leftPercentage:(CGFloat)leftPaddingPercentage;
++ (instancetype) topPercentage:(CGFloat)topMarginPercentage leftFixed:(CGFloat)leftMarginFixed;
++ (instancetype) topFixed:(CGFloat)topMarginFixed leftPercentage:(CGFloat)leftMarginPercentage;
 
-+ (instancetype) topPercentage:(CGFloat)topPaddingPercentage rightFixed:(CGFloat)rightPaddingFixed;
-+ (instancetype) topFixed:(CGFloat)topPaddingFixed rightPercentage:(CGFloat)rightPaddingPercentage;
++ (instancetype) topPercentage:(CGFloat)topMarginPercentage rightFixed:(CGFloat)rightMarginFixed;
++ (instancetype) topFixed:(CGFloat)topMarginFixed rightPercentage:(CGFloat)rightMarginPercentage;
 
-+ (instancetype) bottomPercentage:(CGFloat)bottomPaddingPercentage leftFixed:(CGFloat)leftPaddingFixed;
-+ (instancetype) bottomFixed:(CGFloat)bottomPaddingFixed leftPercentage:(CGFloat)leftPaddingPercentage;
++ (instancetype) bottomPercentage:(CGFloat)bottomMarginPercentage leftFixed:(CGFloat)leftMarginFixed;
++ (instancetype) bottomFixed:(CGFloat)bottomMarginFixed leftPercentage:(CGFloat)leftMarginPercentage;
 
-+ (instancetype) bottomPercentage:(CGFloat)bottomPaddingPercentage rightFixed:(CGFloat)rightPaddingFixed;
-+ (instancetype) bottomFixed:(CGFloat)bottomPaddingFixed rightPercentage:(CGFloat)rightPaddingPercentage;
++ (instancetype) bottomPercentage:(CGFloat)bottomMarginPercentage rightFixed:(CGFloat)rightMarginFixed;
++ (instancetype) bottomFixed:(CGFloat)bottomMarginFixed rightPercentage:(CGFloat)rightMarginPercentage;
 
 
 @end

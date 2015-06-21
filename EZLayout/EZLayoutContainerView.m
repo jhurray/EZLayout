@@ -69,6 +69,11 @@
 }
 
 // Initializers for portrait mode
++ (instancetype) containerFilledWithView:(UIView *)view {
+    EZLayoutContainerView *container = [[EZLayoutContainerView alloc] initWithViewToFill:view];
+    return container;
+}
+
 + (instancetype) containerWithHorizontalViews:(NSArray *)views percentages:(NSArray *)percentages {
     EZLayoutContainerView *container = [[EZLayoutContainerView alloc] initWithHorizontalViews:views percentages:percentages];
     return container;
@@ -116,6 +121,15 @@
 
 #pragma mark - Instance Initializers
 // Initializers for portrait mode
+
+- (instancetype) initWithViewToFill:(UIView *)view {
+    if (self = [super init]) {
+        [self setup];
+        [self fillWithView:view];
+    }
+    return self;
+}
+
 - (instancetype) initWithHorizontalViews:(NSArray *)views percentages:(NSArray *)percentages {
     return [self initWithType:EZLayoutContainerViewTypeHorizontal views:views percentages:percentages];
 }
@@ -256,6 +270,11 @@
 
 #pragma mark - Portrait Orientation
 
+/* Fill */
+- (void) fillWithView:(UIView *)view {
+    [self horizontallyLayoutViews:@[view] withPercentages:@[@1.0]];
+}
+
 /* Dynamic */
 // lays out views left to right
 - (void) horizontallyLayoutViews:(NSArray *)views withPercentages:(NSArray *)percentages {
@@ -306,6 +325,11 @@
 }
 
 #pragma mark - Landscape Orientation
+
+/* Fill */
+- (void) fillWithLandscapeView:(UIView *)view {
+    [self horizontallyLayoutLandscapeViews:@[view] withLandscapePercentages:@[@1.0]];
+}
 
 /* Dynamic */
 // lays out views left to right
@@ -387,27 +411,11 @@
         [viewForLayout calculateSizeAndAlignmentValuesInContainerRect:rect];
         [viewForLayout calculateViewInContainerRect:rect];
         if (viewForLayout.frameWasSetBlock) {
-            __block UIView *selfByReference = self;
-            viewForLayout.frameWasSetBlock(selfByReference);
+            viewForLayout.frameWasSetBlock(self);
         }
         if ([viewForLayout isKindOfClass:self.class]) {
             EZLayoutContainerView *ezViewForLayout = (EZLayoutContainerView *)viewForLayout;
             [ezViewForLayout ezLayoutSubviews];
-        }
-    }
-    for (UIView *view in self.subviews) {
-        if ([view isKindOfClass:self.class]) {
-            EZLayoutContainerView *ezViewForLayout = (EZLayoutContainerView *)view;
-            if (ezViewForLayout.isTopContainer) {
-                // For background views
-                [ezViewForLayout calculateSizeAndAlignmentValuesInContainerRect:self.bounds];
-                [ezViewForLayout calculateViewInContainerRect:self.bounds];
-                if (ezViewForLayout.frameWasSetBlock) {
-                    __block UIView *selfByReference = self;
-                    ezViewForLayout.frameWasSetBlock(selfByReference);
-                }
-                [ezViewForLayout ezLayoutSubviews];
-            }
         }
     }
     if (self.orderSubviewsByTag) {

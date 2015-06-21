@@ -10,6 +10,7 @@
 		26278F241B30905000D9B58D /* EZLayoutFlexibleRatio.m in Sources */ = {isa = PBXBuildFile; fileRef = 26278F231B30905000D9B58D /* EZLayoutFlexibleRatio.m */; };
 		26278F271B30992400D9B58D /* EZLayoutAlignment+Private.m in Sources */ = {isa = PBXBuildFile; fileRef = 26278F261B30992400D9B58D /* EZLayoutAlignment+Private.m */; };
 		26278F2A1B31FD8100D9B58D /* EZLayoutSize+Private.m in Sources */ = {isa = PBXBuildFile; fileRef = 26278F291B31FD8100D9B58D /* EZLayoutSize+Private.m */; };
+		264676511B370D54002AA069 /* UITextView+EZLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 264676501B370D53002AA069 /* UITextView+EZLayout.m */; };
 		26724A931B10B2E9006CDCAE /* EZLayoutAlignment.m in Sources */ = {isa = PBXBuildFile; fileRef = 26724A921B10B2E9006CDCAE /* EZLayoutAlignment.m */; };
 		26724A9A1B10DD5A006CDCAE /* EZLayoutContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 26724A991B10DD5A006CDCAE /* EZLayoutContainerView.m */; };
 		26724A9D1B10DD8B006CDCAE /* UIDevice+EZLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 26724A9C1B10DD8B006CDCAE /* UIDevice+EZLayout.m */; };
@@ -47,6 +48,8 @@
 		26278F261B30992400D9B58D /* EZLayoutAlignment+Private.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "EZLayoutAlignment+Private.m"; path = "../../EZLayout/EZLayoutAlignment+Private.m"; sourceTree = "<group>"; };
 		26278F281B31FD8100D9B58D /* EZLayoutSize+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "EZLayoutSize+Private.h"; path = "../../EZLayout/EZLayoutSize+Private.h"; sourceTree = "<group>"; };
 		26278F291B31FD8100D9B58D /* EZLayoutSize+Private.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "EZLayoutSize+Private.m"; path = "../../EZLayout/EZLayoutSize+Private.m"; sourceTree = "<group>"; };
+		2646764F1B370D53002AA069 /* UITextView+EZLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UITextView+EZLayout.h"; path = "../../EZLayout/UITextView+EZLayout.h"; sourceTree = "<group>"; };
+		264676501B370D53002AA069 /* UITextView+EZLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UITextView+EZLayout.m"; path = "../../EZLayout/UITextView+EZLayout.m"; sourceTree = "<group>"; };
 		26724A921B10B2E9006CDCAE /* EZLayoutAlignment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = EZLayoutAlignment.m; path = ../../EZLayout/EZLayoutAlignment.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		26724A981B10DD5A006CDCAE /* EZLayoutContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EZLayoutContainerView.h; path = ../../EZLayout/EZLayoutContainerView.h; sourceTree = "<group>"; };
 		26724A991B10DD5A006CDCAE /* EZLayoutContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = EZLayoutContainerView.m; path = ../../EZLayout/EZLayoutContainerView.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
@@ -205,6 +208,8 @@
 				26724AA61B14B79C006CDCAE /* EZLayoutDebugLayer.m */,
 				26278F221B30905000D9B58D /* EZLayoutFlexibleRatio.h */,
 				26278F231B30905000D9B58D /* EZLayoutFlexibleRatio.m */,
+				2646764F1B370D53002AA069 /* UITextView+EZLayout.h */,
+				264676501B370D53002AA069 /* UITextView+EZLayout.m */,
 			);
 			name = EZLayout;
 			sourceTree = "<group>";
@@ -309,6 +314,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				264676511B370D54002AA069 /* UITextView+EZLayout.m in Sources */,
 				26724AA71B14B79D006CDCAE /* EZLayoutDebugLayer.m in Sources */,
 				26E50CFB1B10A8DD00FB4FF6 /* ViewController.m in Sources */,
 				26E50CF81B10A8DD00FB4FF6 /* AppDelegate.m in Sources */,

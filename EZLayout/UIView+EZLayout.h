@@ -13,6 +13,9 @@
 typedef void (^EZMakeBlock)(UIView *make);
 #define ezMakeBlock(make) ^void (UIView *make)
 
+typedef void (^EZFrameWasSetBlock)();
+#define ezFrameWasSetBlock() ^void ()
+
 @interface UIView (EZLayout)
 
 #pragma mark - EZLayout Initializers
@@ -22,7 +25,7 @@ typedef void (^EZMakeBlock)(UIView *make);
 + (NSArray *) ezMakeViews:(NSUInteger)numViews make:(void(^)(UIView *make, NSUInteger index))makeBlock;
 
 #pragma mark - Helper Blocks
-@property (nonatomic, copy) EZMakeBlock frameWasSetBlock;
+@property (nonatomic, copy) EZFrameWasSetBlock frameWasSetBlock;
 
 #pragma mark - EZLayout Classes
 @property (strong, nonatomic) EZLayoutSize *ezSize;

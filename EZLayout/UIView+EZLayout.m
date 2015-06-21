@@ -36,12 +36,12 @@
 
 #pragma mark - EZLayout Classes
 
-- (EZMakeBlock) frameWasSetBlock {
-    EZMakeBlock makeBlock = objc_getAssociatedObject(self, @selector(frameWasSetBlock));
-    return makeBlock;
+- (EZFrameWasSetBlock) frameWasSetBlock {
+    EZFrameWasSetBlock frameWasSetBlock = objc_getAssociatedObject(self, @selector(frameWasSetBlock));
+    return frameWasSetBlock;
 }
 
-- (void) setFrameWasSetBlock:(EZMakeBlock)frameWasSetBlock {
+- (void) setFrameWasSetBlock:(EZFrameWasSetBlock)frameWasSetBlock {
     objc_setAssociatedObject(self, @selector(frameWasSetBlock), frameWasSetBlock, OBJC_ASSOCIATION_COPY_NONATOMIC);
 }
 

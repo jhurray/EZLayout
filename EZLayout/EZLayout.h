@@ -11,6 +11,7 @@
 
 #import "UIDevice+EZLayout.h"
 #import "UIView+EZLayout.h"
+#import "UITextView+EZLayout.h"
 #import "EZLayoutContainerView.h"
 #import "EZLayoutConstants.h"
 #import "EZLayoutFlexibleRatio.h"

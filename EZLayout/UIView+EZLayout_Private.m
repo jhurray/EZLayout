@@ -21,6 +21,8 @@
     if (CGRectEqualToRect(CGRectZero, containerRect)) {
         return;
     }
+    [self valueCheck: containerRect];
+    
     //Ratio
     CGFloat containerRatio = containerRect.size.height/containerRect.size.width;
     
@@ -58,180 +60,137 @@
         self.ezSize.scaleFactor = scaleFactor;
     }
     else {
-        //NSAssert(NO, @"EZLayout Fatal Error: You need to set at least 2 of the EZLayoutSize properties. See header file.");
+        NSAssert(NO, @"EZLayout Fatal Error: Illegal EZLayoutSizeType");
     }
     
     // Calculate Alignment
     switch (self.ezAlignment.type) {
         
         case EZLayoutAlignmentTypeCenter:
-            self.ezAlignment.leftPaddingPercentage = self.ezAlignment.rightPaddingPercentage = (1.0-self.ezSize.widthPercentage)/2.0;
-            self.ezAlignment.topPaddingPercentage = self.ezAlignment.bottomPaddingPercentage = (1.0-self.ezSize.heightPercentage)/2.0;
+            self.ezAlignment.leftMarginPercentage = self.ezAlignment.rightMarginPercentage = (1.0-self.ezSize.widthPercentage)/2.0;
+            self.ezAlignment.topMarginPercentage = self.ezAlignment.bottomMarginPercentage = (1.0-self.ezSize.heightPercentage)/2.0;
             break;
         case EZLayoutAlignmentTypeTopPercentage:
-            self.ezAlignment.leftPaddingPercentage = self.ezAlignment.rightPaddingPercentage = (1.0-self.ezSize.widthPercentage)/2.0;
-            self.ezAlignment.bottomPaddingPercentage = 1.0-(self.ezSize.heightPercentage+self.ezAlignment.topPaddingPercentage);
-            //NSAssert(self.ezAlignment.bottomPaddingPercentage>=0.0, @" EZLayout Fatal Error: Sum of top padding and height percentage must be less than 1.0");
-            break;
+            self.ezAlignment.leftMarginPercentage = self.ezAlignment.rightMarginPercentage = (1.0-self.ezSize.widthPercentage)/2.0;
+            self.ezAlignment.bottomMarginPercentage = 1.0-(self.ezSize.heightPercentage+self.ezAlignment.topMarginPercentage);
+             break;
         case EZLayoutAlignmentTypeBottomPercentage:
-            self.ezAlignment.leftPaddingPercentage = self.ezAlignment.rightPaddingPercentage = (1.0-self.ezSize.widthPercentage)/2.0;
-            self.ezAlignment.topPaddingPercentage = 1.0-(self.ezSize.heightPercentage+self.ezAlignment.bottomPaddingPercentage);
-            //NSAssert(self.ezAlignment.topPaddingPercentage>=0.0, @" EZLayout Fatal Error: Sum of bottom padding and height percentage must be less than 1.0");
+            self.ezAlignment.leftMarginPercentage = self.ezAlignment.rightMarginPercentage = (1.0-self.ezSize.widthPercentage)/2.0;
+            self.ezAlignment.topMarginPercentage = 1.0-(self.ezSize.heightPercentage+self.ezAlignment.bottomMarginPercentage);
             break;
         case EZLayoutAlignmentTypeLeftPercentage:
-            self.ezAlignment.topPaddingPercentage = self.ezAlignment.bottomPaddingPercentage = (1.0-self.ezSize.heightPercentage)/2.0;
-            self.ezAlignment.rightPaddingPercentage = 1.0-(self.ezSize.widthPercentage+self.ezAlignment.leftPaddingPercentage);
-            //NSAssert(self.ezAlignment.rightPaddingPercentage>=0.0, @" EZLayout Fatal Error: Sum of left padding and width percentage must be less than 1.0");
+            self.ezAlignment.topMarginPercentage = self.ezAlignment.bottomMarginPercentage = (1.0-self.ezSize.heightPercentage)/2.0;
+            self.ezAlignment.rightMarginPercentage = 1.0-(self.ezSize.widthPercentage+self.ezAlignment.leftMarginPercentage);
             break;
         case EZLayoutAlignmentTypeRightPercentage:
-            self.ezAlignment.topPaddingPercentage = self.ezAlignment.bottomPaddingPercentage = (1.0-self.ezSize.heightPercentage)/2.0;
-            self.ezAlignment.leftPaddingPercentage = 1.0-(self.ezSize.widthPercentage+self.ezAlignment.rightPaddingPercentage);
-            //NSAssert(self.ezAlignment.leftPaddingPercentage>=0.0, @" EZLayout Fatal Error: Sum of right padding and width percentage must be less than 1.0");
+            self.ezAlignment.topMarginPercentage = self.ezAlignment.bottomMarginPercentage = (1.0-self.ezSize.heightPercentage)/2.0;
+            self.ezAlignment.leftMarginPercentage = 1.0-(self.ezSize.widthPercentage+self.ezAlignment.rightMarginPercentage);
             break;
         case EZLayoutAlignmentTypeTopPercentageLeftPercentage:
-            self.ezAlignment.bottomPaddingPercentage = 1.0-(self.ezSize.heightPercentage+self.ezAlignment.topPaddingPercentage);
-            //NSAssert(self.ezAlignment.bottomPaddingPercentage>=0.0, @" EZLayout Fatal Error: Sum of top padding and height percentage must be less than 1.0");
-            self.ezAlignment.rightPaddingPercentage = 1.0-(self.ezSize.widthPercentage+self.ezAlignment.leftPaddingPercentage);
-            //NSAssert(self.ezAlignment.rightPaddingPercentage>=0.0, @" EZLayout Fatal Error: Sum of left padding and width percentage must be less than 1.0");
+            self.ezAlignment.bottomMarginPercentage = 1.0-(self.ezSize.heightPercentage+self.ezAlignment.topMarginPercentage);
+            self.ezAlignment.rightMarginPercentage = 1.0-(self.ezSize.widthPercentage+self.ezAlignment.leftMarginPercentage);
             break;
         case EZLayoutAlignmentTypeTopPercentageRightPercentage:
-            self.ezAlignment.bottomPaddingPercentage = 1.0-(self.ezSize.heightPercentage+self.ezAlignment.topPaddingPercentage);
-            //NSAssert(self.ezAlignment.bottomPaddingPercentage>=0.0, @" EZLayout Fatal Error: Sum of top padding and height percentage must be less than 1.0");
-            self.ezAlignment.leftPaddingPercentage = 1.0-(self.ezSize.widthPercentage+self.ezAlignment.rightPaddingPercentage);
-            //NSAssert(self.ezAlignment.leftPaddingPercentage>=0.0,@" EZLayout Fatal Error: Sum of right padding and width percentage must be less than 1.0");
+            self.ezAlignment.bottomMarginPercentage = 1.0-(self.ezSize.heightPercentage+self.ezAlignment.topMarginPercentage);
+            self.ezAlignment.leftMarginPercentage = 1.0-(self.ezSize.widthPercentage+self.ezAlignment.rightMarginPercentage);
             break;
         case EZLayoutAlignmentTypeBottomPercentageLeftPercentage:
-            self.ezAlignment.topPaddingPercentage = 1.0-(self.ezSize.heightPercentage+self.ezAlignment.bottomPaddingPercentage);
-            //NSAssert(self.ezAlignment.topPaddingPercentage>=0.0, @" EZLayout Fatal Error: Sum of bottom padding and height percentage must be less than 1.0");
-            self.ezAlignment.rightPaddingPercentage = 1.0-(self.ezSize.widthPercentage+self.ezAlignment.leftPaddingPercentage);
-            //NSAssert(self.ezAlignment.rightPaddingPercentage>=0.0, @" EZLayout Fatal Error: Sum of left padding and width percentage must be less than 1.0");
+            self.ezAlignment.topMarginPercentage = 1.0-(self.ezSize.heightPercentage+self.ezAlignment.bottomMarginPercentage);
+            self.ezAlignment.rightMarginPercentage = 1.0-(self.ezSize.widthPercentage+self.ezAlignment.leftMarginPercentage);
             break;
         case EZLayoutAlignmentTypeBottomPercentageRightPercentage:
-            self.ezAlignment.topPaddingPercentage = 1.0-(self.ezSize.heightPercentage+self.ezAlignment.bottomPaddingPercentage);
-            //NSAssert(self.ezAlignment.topPaddingPercentage>=0.0, @" EZLayout Fatal Error: Sum of bottom padding and height percentage must be less than 1.0");
-            self.ezAlignment.leftPaddingPercentage = 1.0-(self.ezSize.widthPercentage+self.ezAlignment.rightPaddingPercentage);
-            //NSAssert(self.ezAlignment.leftPaddingPercentage>=0.0, @" EZLayout Fatal Error: Sum of right padding and width percentage must be less than 1.0");
+            self.ezAlignment.topMarginPercentage = 1.0-(self.ezSize.heightPercentage+self.ezAlignment.bottomMarginPercentage);
+            self.ezAlignment.leftMarginPercentage = 1.0-(self.ezSize.widthPercentage+self.ezAlignment.rightMarginPercentage);
             break;
            
         case EZLayoutAlignmentTypeTopFixed:
-            self.ezAlignment.leftPaddingPercentage = self.ezAlignment.rightPaddingPercentage = (1.0-self.ezSize.widthPercentage)/2.0;
-            self.ezAlignment.topPaddingPercentage = self.ezAlignment.topPaddingFixed/containerRect.size.height;
-            self.ezAlignment.bottomPaddingPercentage = 1.0-(self.ezSize.heightPercentage+self.ezAlignment.topPaddingPercentage);
-            //NSAssert(self.ezAlignment.bottomPaddingPercentage>=0.0, @" EZLayout Fatal Error: Sum of top padding and height percentage must be less than 1.0");
+            self.ezAlignment.leftMarginPercentage = self.ezAlignment.rightMarginPercentage = (1.0-self.ezSize.widthPercentage)/2.0;
+            self.ezAlignment.topMarginPercentage = self.ezAlignment.topMarginFixed/containerRect.size.height;
+            self.ezAlignment.bottomMarginPercentage = 1.0-(self.ezSize.heightPercentage+self.ezAlignment.topMarginPercentage);
             break;
         case EZLayoutAlignmentTypeBottomFixed:
-            self.ezAlignment.leftPaddingPercentage = self.ezAlignment.rightPaddingPercentage = (1.0-self.ezSize.widthPercentage)/2.0;
-            self.ezAlignment.bottomPaddingPercentage = self.ezAlignment.bottomPaddingFixed/containerRect.size.height;
-            self.ezAlignment.topPaddingPercentage = 1.0-(self.ezSize.heightPercentage+self.ezAlignment.bottomPaddingPercentage);
-            //NSAssert(self.ezAlignment.topPaddingPercentage>=0.0, @" EZLayout Fatal Error: Sum of bottom padding and height percentage must be less than 1.0");
+            self.ezAlignment.leftMarginPercentage = self.ezAlignment.rightMarginPercentage = (1.0-self.ezSize.widthPercentage)/2.0;
+            self.ezAlignment.bottomMarginPercentage = self.ezAlignment.bottomMarginFixed/containerRect.size.height;
+            self.ezAlignment.topMarginPercentage = 1.0-(self.ezSize.heightPercentage+self.ezAlignment.bottomMarginPercentage);
             break;
         case EZLayoutAlignmentTypeLeftFixed:
-            self.ezAlignment.topPaddingPercentage = self.ezAlignment.bottomPaddingPercentage = (1.0-self.ezSize.heightPercentage)/2.0;
-            self.ezAlignment.leftPaddingPercentage = self.ezAlignment.leftPaddingFixed/containerRect.size.width;
-            self.ezAlignment.rightPaddingPercentage = 1.0-(self.ezSize.widthPercentage+self.ezAlignment.leftPaddingPercentage);
-            //NSAssert(self.ezAlignment.rightPaddingPercentage>=0.0, @" EZLayout Fatal Error: Sum of left padding and width percentage must be less than 1.0");
+            self.ezAlignment.topMarginPercentage = self.ezAlignment.bottomMarginPercentage = (1.0-self.ezSize.heightPercentage)/2.0;
+            self.ezAlignment.leftMarginPercentage = self.ezAlignment.leftMarginFixed/containerRect.size.width;
+            self.ezAlignment.rightMarginPercentage = 1.0-(self.ezSize.widthPercentage+self.ezAlignment.leftMarginPercentage);
             break;
         case EZLayoutAlignmentTypeRightFixed:
-            self.ezAlignment.topPaddingPercentage = self.ezAlignment.bottomPaddingPercentage = (1.0-self.ezSize.heightPercentage)/2.0;
-            self.ezAlignment.rightPaddingPercentage = self.ezAlignment.rightPaddingFixed/containerRect.size.width;
-            self.ezAlignment.leftPaddingPercentage = 1.0-(self.ezSize.widthPercentage+self.ezAlignment.rightPaddingPercentage);
-            //NSAssert(self.ezAlignment.leftPaddingPercentage>=0.0, @" EZLayout Fatal Error: Sum of right padding and width percentage must be less than 1.0");
+            self.ezAlignment.topMarginPercentage = self.ezAlignment.bottomMarginPercentage = (1.0-self.ezSize.heightPercentage)/2.0;
+            self.ezAlignment.rightMarginPercentage = self.ezAlignment.rightMarginFixed/containerRect.size.width;
+            self.ezAlignment.leftMarginPercentage = 1.0-(self.ezSize.widthPercentage+self.ezAlignment.rightMarginPercentage);
             break;
         case EZLayoutAlignmentTypeTopFixedLeftFixed:
-            self.ezAlignment.topPaddingPercentage = self.ezAlignment.topPaddingFixed/containerRect.size.height;
-            self.ezAlignment.bottomPaddingPercentage = 1.0-(self.ezSize.heightPercentage+self.ezAlignment.topPaddingPercentage);
-            //NSAssert(self.ezAlignment.bottomPaddingPercentage>=0.0, @" EZLayout Fatal Error: Sum of top padding and height percentage must be less than 1.0");
-            self.ezAlignment.leftPaddingPercentage = self.ezAlignment.leftPaddingFixed/containerRect.size.width;
-            self.ezAlignment.rightPaddingPercentage = 1.0-(self.ezSize.widthPercentage+self.ezAlignment.leftPaddingPercentage);
-            //NSAssert(self.ezAlignment.rightPaddingPercentage>=0.0, @" EZLayout Fatal Error: Sum of left padding and width percentage must be less than 1.0");
+            self.ezAlignment.topMarginPercentage = self.ezAlignment.topMarginFixed/containerRect.size.height;
+            self.ezAlignment.bottomMarginPercentage = 1.0-(self.ezSize.heightPercentage+self.ezAlignment.topMarginPercentage);
+            self.ezAlignment.leftMarginPercentage = self.ezAlignment.leftMarginFixed/containerRect.size.width;
+            self.ezAlignment.rightMarginPercentage = 1.0-(self.ezSize.widthPercentage+self.ezAlignment.leftMarginPercentage);
             break;
         case EZLayoutAlignmentTypeTopFixedRightFixed:
-            self.ezAlignment.topPaddingPercentage = self.ezAlignment.topPaddingFixed/containerRect.size.height;
-            self.ezAlignment.bottomPaddingPercentage = 1.0-(self.ezSize.heightPercentage+self.ezAlignment.topPaddingPercentage);
-            //NSAssert(self.ezAlignment.bottomPaddingPercentage>=0.0, @" EZLayout Fatal Error: Sum of top padding and height percentage must be less than 1.0");
-            self.ezAlignment.rightPaddingPercentage = self.ezAlignment.rightPaddingFixed/containerRect.size.width;
-            self.ezAlignment.leftPaddingPercentage = 1.0-(self.ezSize.widthPercentage+self.ezAlignment.rightPaddingPercentage);
-            //NSAssert(self.ezAlignment.leftPaddingPercentage>=0.0, @" EZLayout Fatal Error: Sum of right padding and width percentage must be less than 1.0");
+            self.ezAlignment.topMarginPercentage = self.ezAlignment.topMarginFixed/containerRect.size.height;
+            self.ezAlignment.bottomMarginPercentage = 1.0-(self.ezSize.heightPercentage+self.ezAlignment.topMarginPercentage);
+            self.ezAlignment.rightMarginPercentage = self.ezAlignment.rightMarginFixed/containerRect.size.width;
+            self.ezAlignment.leftMarginPercentage = 1.0-(self.ezSize.widthPercentage+self.ezAlignment.rightMarginPercentage);
             break;
         case EZLayoutAlignmentTypeBottomFixedLeftFixed:
-            self.ezAlignment.bottomPaddingPercentage = self.ezAlignment.bottomPaddingFixed/containerRect.size.height;
-            self.ezAlignment.topPaddingPercentage = 1.0-(self.ezSize.heightPercentage+self.ezAlignment.bottomPaddingPercentage);
-            //NSAssert(self.ezAlignment.topPaddingPercentage>=0.0, @" EZLayout Fatal Error: Sum of bottom padding and height percentage must be less than 1.0");
-            self.ezAlignment.leftPaddingPercentage = self.ezAlignment.leftPaddingFixed/containerRect.size.width;
-            self.ezAlignment.rightPaddingPercentage = 1.0-(self.ezSize.widthPercentage+self.ezAlignment.leftPaddingPercentage);
-            //NSAssert(self.ezAlignment.rightPaddingPercentage>=0.0, @" EZLayout Fatal Error: Sum of left padding and width percentage must be less than 1.0");
+            self.ezAlignment.bottomMarginPercentage = self.ezAlignment.bottomMarginFixed/containerRect.size.height;
+            self.ezAlignment.topMarginPercentage = 1.0-(self.ezSize.heightPercentage+self.ezAlignment.bottomMarginPercentage);
+            self.ezAlignment.leftMarginPercentage = self.ezAlignment.leftMarginFixed/containerRect.size.width;
+            self.ezAlignment.rightMarginPercentage = 1.0-(self.ezSize.widthPercentage+self.ezAlignment.leftMarginPercentage);
             break;
         case EZLayoutAlignmentTypeBottomFixedRightFixed:
-            self.ezAlignment.bottomPaddingPercentage = self.ezAlignment.bottomPaddingFixed/containerRect.size.height;
-            self.ezAlignment.topPaddingPercentage = 1.0-(self.ezSize.heightPercentage+self.ezAlignment.bottomPaddingPercentage);
-            //NSAssert(self.ezAlignment.topPaddingPercentage>=0.0, @" EZLayout Fatal Error: Sum of bottom padding and height percentage must be less than 1.0");
-            self.ezAlignment.rightPaddingPercentage = self.ezAlignment.rightPaddingFixed/containerRect.size.width;
-            self.ezAlignment.leftPaddingPercentage = 1.0-(self.ezSize.widthPercentage+self.ezAlignment.rightPaddingPercentage);
-            //NSAssert(self.ezAlignment.leftPaddingPercentage>=0.0, @" EZLayout Fatal Error: Sum of right padding and width percentage must be less than 1.0");
+            self.ezAlignment.bottomMarginPercentage = self.ezAlignment.bottomMarginFixed/containerRect.size.height;
+            self.ezAlignment.topMarginPercentage = 1.0-(self.ezSize.heightPercentage+self.ezAlignment.bottomMarginPercentage);
+            self.ezAlignment.rightMarginPercentage = self.ezAlignment.rightMarginFixed/containerRect.size.width;
+            self.ezAlignment.leftMarginPercentage = 1.0-(self.ezSize.widthPercentage+self.ezAlignment.rightMarginPercentage);
             break;
         case EZLayoutAlignmentTypeTopFixedLeftPercentage:
-            self.ezAlignment.topPaddingPercentage = self.ezAlignment.topPaddingFixed/containerRect.size.height;
-            self.ezAlignment.bottomPaddingPercentage = 1.0-(self.ezSize.heightPercentage+self.ezAlignment.topPaddingPercentage);
-            //NSAssert(self.ezAlignment.bottomPaddingPercentage>=0.0, @" EZLayout Fatal Error: Sum of top padding and height percentage must be less than 1.0");
-            self.ezAlignment.rightPaddingPercentage = 1.0-(self.ezSize.widthPercentage+self.ezAlignment.leftPaddingPercentage);
-            //NSAssert(self.ezAlignment.rightPaddingPercentage>=0.0, @" EZLayout Fatal Error: Sum of left padding and width percentage must be less than 1.0");
+            self.ezAlignment.topMarginPercentage = self.ezAlignment.topMarginFixed/containerRect.size.height;
+            self.ezAlignment.bottomMarginPercentage = 1.0-(self.ezSize.heightPercentage+self.ezAlignment.topMarginPercentage);
+            self.ezAlignment.rightMarginPercentage = 1.0-(self.ezSize.widthPercentage+self.ezAlignment.leftMarginPercentage);
             break;
         case EZLayoutAlignmentTypeTopPercentageLeftFixed:
-            self.ezAlignment.bottomPaddingPercentage = 1.0-(self.ezSize.heightPercentage+self.ezAlignment.topPaddingPercentage);
-            //NSAssert(self.ezAlignment.bottomPaddingPercentage>=0.0, @" EZLayout Fatal Error: Sum of top padding and height percentage must be less than 1.0");
-            self.ezAlignment.leftPaddingPercentage = self.ezAlignment.leftPaddingFixed/containerRect.size.width;
-            self.ezAlignment.rightPaddingPercentage = 1.0-(self.ezSize.widthPercentage+self.ezAlignment.leftPaddingPercentage);
-            //NSAssert(self.ezAlignment.rightPaddingPercentage>=0.0, @" EZLayout Fatal Error: Sum of left padding and width percentage must be less than 1.0");
+            self.ezAlignment.bottomMarginPercentage = 1.0-(self.ezSize.heightPercentage+self.ezAlignment.topMarginPercentage);
+            self.ezAlignment.leftMarginPercentage = self.ezAlignment.leftMarginFixed/containerRect.size.width;
+            self.ezAlignment.rightMarginPercentage = 1.0-(self.ezSize.widthPercentage+self.ezAlignment.leftMarginPercentage);
             break;
         case EZLayoutAlignmentTypeTopFixedRightPercentage:
-            self.ezAlignment.topPaddingPercentage = self.ezAlignment.topPaddingFixed/containerRect.size.height;
-            self.ezAlignment.bottomPaddingPercentage = 1.0-(self.ezSize.heightPercentage+self.ezAlignment.topPaddingPercentage);
-            //NSAssert(self.ezAlignment.bottomPaddingPercentage>=0.0, @" EZLayout Fatal Error: Sum of top padding and height percentage must be less than 1.0");
-            self.ezAlignment.leftPaddingPercentage = 1.0-(self.ezSize.widthPercentage+self.ezAlignment.rightPaddingPercentage);
-            //NSAssert(self.ezAlignment.leftPaddingPercentage>=0.0, @" EZLayout Fatal Error: Sum of right padding and width percentage must be less than 1.0");
-
+            self.ezAlignment.topMarginPercentage = self.ezAlignment.topMarginFixed/containerRect.size.height;
+            self.ezAlignment.bottomMarginPercentage = 1.0-(self.ezSize.heightPercentage+self.ezAlignment.topMarginPercentage);
+            self.ezAlignment.leftMarginPercentage = 1.0-(self.ezSize.widthPercentage+self.ezAlignment.rightMarginPercentage);
             break;
         case EZLayoutAlignmentTypeTopPercentageRightFixed:
-            self.ezAlignment.bottomPaddingPercentage = 1.0-(self.ezSize.heightPercentage+self.ezAlignment.topPaddingPercentage);
-            //NSAssert(self.ezAlignment.bottomPaddingPercentage>=0.0, @" EZLayout Fatal Error: Sum of top padding and height percentage must be less than 1.0");
-            self.ezAlignment.rightPaddingPercentage = self.ezAlignment.rightPaddingFixed/containerRect.size.width;
-            self.ezAlignment.leftPaddingPercentage = 1.0-(self.ezSize.widthPercentage+self.ezAlignment.rightPaddingPercentage);
-            //NSAssert(self.ezAlignment.leftPaddingPercentage>=0.0, @" EZLayout Fatal Error: Sum of right padding and width percentage must be less than 1.0");
-
+            self.ezAlignment.bottomMarginPercentage = 1.0-(self.ezSize.heightPercentage+self.ezAlignment.topMarginPercentage);
+            self.ezAlignment.rightMarginPercentage = self.ezAlignment.rightMarginFixed/containerRect.size.width;
+            self.ezAlignment.leftMarginPercentage = 1.0-(self.ezSize.widthPercentage+self.ezAlignment.rightMarginPercentage);
             break;
         case EZLayoutAlignmentTypeBottomFixedLeftPercentage:
-            self.ezAlignment.bottomPaddingPercentage = self.ezAlignment.bottomPaddingFixed/containerRect.size.height;
-            self.ezAlignment.topPaddingPercentage = 1.0-(self.ezSize.heightPercentage+self.ezAlignment.bottomPaddingPercentage);
-            //NSAssert(self.ezAlignment.topPaddingPercentage>=0.0, @" EZLayout Fatal Error: Sum of bottom padding and height percentage must be less than 1.0");
-            self.ezAlignment.rightPaddingPercentage = 1.0-(self.ezSize.widthPercentage+self.ezAlignment.leftPaddingPercentage);
-            //NSAssert(self.ezAlignment.rightPaddingPercentage>=0.0, @" EZLayout Fatal Error: Sum of left padding and width percentage must be less than 1.0");
+            self.ezAlignment.bottomMarginPercentage = self.ezAlignment.bottomMarginFixed/containerRect.size.height;
+            self.ezAlignment.topMarginPercentage = 1.0-(self.ezSize.heightPercentage+self.ezAlignment.bottomMarginPercentage);
+            self.ezAlignment.rightMarginPercentage = 1.0-(self.ezSize.widthPercentage+self.ezAlignment.leftMarginPercentage);
             break;
         case EZLayoutAlignmentTypeBottomPercentageLeftFixed:
-            self.ezAlignment.topPaddingPercentage = 1.0-(self.ezSize.heightPercentage+self.ezAlignment.bottomPaddingPercentage);
-            //NSAssert(self.ezAlignment.topPaddingPercentage>=0.0, @" EZLayout Fatal Error: Sum of bottom padding and height percentage must be less than 1.0");
-            self.ezAlignment.leftPaddingPercentage = self.ezAlignment.leftPaddingFixed/containerRect.size.width;
-            self.ezAlignment.rightPaddingPercentage = 1.0-(self.ezSize.widthPercentage+self.ezAlignment.leftPaddingPercentage);
-            //NSAssert(self.ezAlignment.rightPaddingPercentage>=0.0, @" EZLayout Fatal Error: Sum of left padding and width percentage must be less than 1.0");
+            self.ezAlignment.topMarginPercentage = 1.0-(self.ezSize.heightPercentage+self.ezAlignment.bottomMarginPercentage);
+            self.ezAlignment.leftMarginPercentage = self.ezAlignment.leftMarginFixed/containerRect.size.width;
+            self.ezAlignment.rightMarginPercentage = 1.0-(self.ezSize.widthPercentage+self.ezAlignment.leftMarginPercentage);
             break;
         case EZLayoutAlignmentTypeBottomFixedRightPercentage:
-            self.ezAlignment.bottomPaddingPercentage = self.ezAlignment.bottomPaddingFixed/containerRect.size.height;
-            self.ezAlignment.topPaddingPercentage = 1.0-(self.ezSize.heightPercentage+self.ezAlignment.bottomPaddingPercentage);
-            //NSAssert(self.ezAlignment.topPaddingPercentage>=0.0, @" EZLayout Fatal Error: Sum of bottom padding and height percentage must be less than 1.0");
-            self.ezAlignment.leftPaddingPercentage = 1.0-(self.ezSize.widthPercentage+self.ezAlignment.rightPaddingPercentage);
-            //NSAssert(self.ezAlignment.leftPaddingPercentage>=0.0, @" EZLayout Fatal Error: Sum of right padding and width percentage must be less than 1.0");
+            self.ezAlignment.bottomMarginPercentage = self.ezAlignment.bottomMarginFixed/containerRect.size.height;
+            self.ezAlignment.topMarginPercentage = 1.0-(self.ezSize.heightPercentage+self.ezAlignment.bottomMarginPercentage);
+            self.ezAlignment.leftMarginPercentage = 1.0-(self.ezSize.widthPercentage+self.ezAlignment.rightMarginPercentage);
             break;
         case EZLayoutAlignmentTypeBottomPercentageRightFixed:
-            self.ezAlignment.topPaddingPercentage = 1.0-(self.ezSize.heightPercentage+self.ezAlignment.bottomPaddingPercentage);
-            //NSAssert(self.ezAlignment.topPaddingPercentage>=0.0, @" EZLayout Fatal Error: Sum of bottom padding and height percentage must be less than 1.0");
-            self.ezAlignment.rightPaddingPercentage = self.ezAlignment.rightPaddingFixed/containerRect.size.width;
-            self.ezAlignment.leftPaddingPercentage = 1.0-(self.ezSize.widthPercentage+self.ezAlignment.rightPaddingPercentage);
-            //NSAssert(self.ezAlignment.leftPaddingPercentage>=0.0, @" EZLayout Fatal Error: Sum of right padding and width percentage must be less than 1.0");
+            self.ezAlignment.topMarginPercentage = 1.0-(self.ezSize.heightPercentage+self.ezAlignment.bottomMarginPercentage);
+            self.ezAlignment.rightMarginPercentage = self.ezAlignment.rightMarginFixed/containerRect.size.width;
+            self.ezAlignment.leftMarginPercentage = 1.0-(self.ezSize.widthPercentage+self.ezAlignment.rightMarginPercentage);
             break;
         default:
-            //NSAssert(NO, @"EZLayout Fatal Error: Illegal alignment type.");
+            NSAssert(NO, @"EZLayout Fatal Error: Illegal alignment type.");
             break;
     }
-    [self valueCheck];
 }
 
 - (void) calculateViewInContainerRect:(CGRect) containerRect {
@@ -242,20 +201,20 @@
     if (CGRectEqualToRect(CGRectZero, containerRect)) {
         return;
     }
-    [self valueCheck];
+    [self valueCheck:containerRect];
     CGFloat vertical = containerRect.size.height;
     CGFloat horizontal = containerRect.size.width;
-    CGRect frame = CGRectMake(horizontal*self.ezAlignment.leftPaddingPercentage + containerRect.origin.x,
-                            vertical*self.ezAlignment.topPaddingPercentage + containerRect.origin.y,
+    CGRect frame = CGRectMake(horizontal*self.ezAlignment.leftMarginPercentage + containerRect.origin.x,
+                            vertical*self.ezAlignment.topMarginPercentage + containerRect.origin.y,
                             horizontal*self.ezSize.widthPercentage,
                             vertical*self.ezSize.heightPercentage);
+    [self valueCheck:frame];
     self.frame = frame;
 }
 
-- (void) valueCheck {
-    BOOL verticalGood = self.ezAlignment.topPaddingPercentage+self.ezAlignment.bottomPaddingPercentage+self.ezSize.heightPercentage==1.0;
-    BOOL horizontalGood = self.ezAlignment.leftPaddingPercentage+self.ezAlignment.rightPaddingPercentage+self.ezSize.widthPercentage==1.0;
-    //NSAssert(horizontalGood&&verticalGood, @"EZLayout Fatal Error: Alignment and Size percentages must add to 1.0");
+- (void) valueCheck:(CGRect)rect {
+    BOOL rectIsBad = isnan(rect.origin.x) || isnan(rect.origin.y) || isnan(rect.size.width) || isnan(rect.size.height);
+    NSAssert(!rectIsBad, @"EZLayout Fatal Error: This view's (%@) frame contains a NAN value. Please review your EZLayout code.", NSStringFromClass(self.class));
 }
 
 @end
