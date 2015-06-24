@@ -10,6 +10,9 @@
 		26278F241B30905000D9B58D /* EZLayoutFlexibleRatio.m in Sources */ = {isa = PBXBuildFile; fileRef = 26278F231B30905000D9B58D /* EZLayoutFlexibleRatio.m */; };
 		26278F271B30992400D9B58D /* EZLayoutAlignment+Private.m in Sources */ = {isa = PBXBuildFile; fileRef = 26278F261B30992400D9B58D /* EZLayoutAlignment+Private.m */; };
 		26278F2A1B31FD8100D9B58D /* EZLayoutSize+Private.m in Sources */ = {isa = PBXBuildFile; fileRef = 26278F291B31FD8100D9B58D /* EZLayoutSize+Private.m */; };
+		2637AFAB1B3853D800B86082 /* EZLayoutAlignment+Shorthand.m in Sources */ = {isa = PBXBuildFile; fileRef = 2637AFAA1B3853D800B86082 /* EZLayoutAlignment+Shorthand.m */; };
+		2637AFAE1B3853FA00B86082 /* EZLayoutSize+Shorthand.m in Sources */ = {isa = PBXBuildFile; fileRef = 2637AFAD1B3853FA00B86082 /* EZLayoutSize+Shorthand.m */; };
+		2637AFB11B38542200B86082 /* EZLayoutContainerView+Shorthand.m in Sources */ = {isa = PBXBuildFile; fileRef = 2637AFB01B38542200B86082 /* EZLayoutContainerView+Shorthand.m */; };
 		264676511B370D54002AA069 /* UITextView+EZLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 264676501B370D53002AA069 /* UITextView+EZLayout.m */; };
 		26724A931B10B2E9006CDCAE /* EZLayoutAlignment.m in Sources */ = {isa = PBXBuildFile; fileRef = 26724A921B10B2E9006CDCAE /* EZLayoutAlignment.m */; };
 		26724A9A1B10DD5A006CDCAE /* EZLayoutContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 26724A991B10DD5A006CDCAE /* EZLayoutContainerView.m */; };
@@ -48,6 +51,13 @@
 		26278F261B30992400D9B58D /* EZLayoutAlignment+Private.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "EZLayoutAlignment+Private.m"; path = "../../EZLayout/EZLayoutAlignment+Private.m"; sourceTree = "<group>"; };
 		26278F281B31FD8100D9B58D /* EZLayoutSize+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "EZLayoutSize+Private.h"; path = "../../EZLayout/EZLayoutSize+Private.h"; sourceTree = "<group>"; };
 		26278F291B31FD8100D9B58D /* EZLayoutSize+Private.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "EZLayoutSize+Private.m"; path = "../../EZLayout/EZLayoutSize+Private.m"; sourceTree = "<group>"; };
+		2637AFA91B3853D800B86082 /* EZLayoutAlignment+Shorthand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "EZLayoutAlignment+Shorthand.h"; path = "../../EZLayout/EZLayoutAlignment+Shorthand.h"; sourceTree = "<group>"; };
+		2637AFAA1B3853D800B86082 /* EZLayoutAlignment+Shorthand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "EZLayoutAlignment+Shorthand.m"; path = "../../EZLayout/EZLayoutAlignment+Shorthand.m"; sourceTree = "<group>"; };
+		2637AFAC1B3853FA00B86082 /* EZLayoutSize+Shorthand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "EZLayoutSize+Shorthand.h"; path = "../../EZLayout/EZLayoutSize+Shorthand.h"; sourceTree = "<group>"; };
+		2637AFAD1B3853FA00B86082 /* EZLayoutSize+Shorthand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "EZLayoutSize+Shorthand.m"; path = "../../EZLayout/EZLayoutSize+Shorthand.m"; sourceTree = "<group>"; };
+		2637AFAF1B38542200B86082 /* EZLayoutContainerView+Shorthand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "EZLayoutContainerView+Shorthand.h"; path = "../../EZLayout/EZLayoutContainerView+Shorthand.h"; sourceTree = "<group>"; };
+		2637AFB01B38542200B86082 /* EZLayoutContainerView+Shorthand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "EZLayoutContainerView+Shorthand.m"; path = "../../EZLayout/EZLayoutContainerView+Shorthand.m"; sourceTree = "<group>"; };
+		2637AFB31B38544E00B86082 /* EZLayout+Shorthand.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "EZLayout+Shorthand.h"; sourceTree = "<group>"; };
 		2646764F1B370D53002AA069 /* UITextView+EZLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UITextView+EZLayout.h"; path = "../../EZLayout/UITextView+EZLayout.h"; sourceTree = "<group>"; };
 		264676501B370D53002AA069 /* UITextView+EZLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UITextView+EZLayout.m"; path = "../../EZLayout/UITextView+EZLayout.m"; sourceTree = "<group>"; };
 		26724A921B10B2E9006CDCAE /* EZLayoutAlignment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = EZLayoutAlignment.m; path = ../../EZLayout/EZLayoutAlignment.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
@@ -122,6 +132,19 @@
 			name = Private;
 			sourceTree = "<group>";
 		};
+		2637AFB21B38542D00B86082 /* Shorthand */ = {
+			isa = PBXGroup;
+			children = (
+				2637AFA91B3853D800B86082 /* EZLayoutAlignment+Shorthand.h */,
+				2637AFAA1B3853D800B86082 /* EZLayoutAlignment+Shorthand.m */,
+				2637AFAC1B3853FA00B86082 /* EZLayoutSize+Shorthand.h */,
+				2637AFAD1B3853FA00B86082 /* EZLayoutSize+Shorthand.m */,
+				2637AFAF1B38542200B86082 /* EZLayoutContainerView+Shorthand.h */,
+				2637AFB01B38542200B86082 /* EZLayoutContainerView+Shorthand.m */,
+			);
+			name = Shorthand;
+			sourceTree = "<group>";
+		};
 		26E50CE61B10A8DD00FB4FF6 = {
 			isa = PBXGroup;
 			children = (
@@ -192,6 +215,7 @@
 			isa = PBXGroup;
 			children = (
 				26278F2B1B31FDEC00D9B58D /* Private */,
+				2637AFB21B38542D00B86082 /* Shorthand */,
 				26724A981B10DD5A006CDCAE /* EZLayoutContainerView.h */,
 				26724A991B10DD5A006CDCAE /* EZLayoutContainerView.m */,
 				26E50D221B10AA2300FB4FF6 /* EZLayoutSize.h */,
@@ -210,6 +234,7 @@
 				26278F231B30905000D9B58D /* EZLayoutFlexibleRatio.m */,
 				2646764F1B370D53002AA069 /* UITextView+EZLayout.h */,
 				264676501B370D53002AA069 /* UITextView+EZLayout.m */,
+				2637AFB31B38544E00B86082 /* EZLayout+Shorthand.h */,
 			);
 			name = EZLayout;
 			sourceTree = "<group>";
@@ -326,11 +351,14 @@
 				26E0FA7F1B25D2F0009BDF1B /* TableViewController.m in Sources */,
 				26278F271B30992400D9B58D /* EZLayoutAlignment+Private.m in Sources */,
 				26278F2A1B31FD8100D9B58D /* EZLayoutSize+Private.m in Sources */,
+				2637AFAB1B3853D800B86082 /* EZLayoutAlignment+Shorthand.m in Sources */,
 				26724A931B10B2E9006CDCAE /* EZLayoutAlignment.m in Sources */,
 				26E0FA7C1B25D2B1009BDF1B /* EZLayoutExampleTableViewCell.m in Sources */,
 				26278F241B30905000D9B58D /* EZLayoutFlexibleRatio.m in Sources */,
 				26E50CF51B10A8DD00FB4FF6 /* main.m in Sources */,
+				2637AFAE1B3853FA00B86082 /* EZLayoutSize+Shorthand.m in Sources */,
 				26724AA31B1246E9006CDCAE /* UIView+EZLayout_Private.m in Sources */,
+				2637AFB11B38542200B86082 /* EZLayoutContainerView+Shorthand.m in Sources */,
 				26E0FA821B2604FB009BDF1B /* EZLayoutContainerView+Private.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

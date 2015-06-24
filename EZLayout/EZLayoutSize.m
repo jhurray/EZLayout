@@ -22,6 +22,8 @@
         self.heightPercentage = NAN;
         self.widthPercentage = NAN;
         self.scaleFactor = NAN;
+        self.fixedHeight = NAN;
+        self.fixedWidth = NAN;
     }
     return self;
 }
@@ -54,42 +56,30 @@
     return size;
 }
 
-+ (instancetype) fixedHeight:(CGFloat)fixedHeight fixedWidth:(CGFloat)fixedWidth {
++ (instancetype)  heightFixed:(CGFloat) heightFixed  widthFixed:(CGFloat) widthFixed {
     EZLayoutSize *size = [[EZLayoutSize alloc] init];
     size.type = EZLayoutSizeTypeFixedHeightAndWidth;
-    size.fixedHeight = fixedHeight;
-    size.fixedWidth = fixedWidth;
+    size.fixedHeight = heightFixed;
+    size.fixedWidth = widthFixed;
     return size;
 }
 
-+ (instancetype) fixedHeight:(CGFloat)fixedHeight widthPercentage:(CGFloat)widthPercentage {
++ (instancetype)  heightFixed:(CGFloat) heightFixed widthPercentage:(CGFloat)widthPercentage {
     [self sizePercentageValueCheck:widthPercentage];
     EZLayoutSize *size = [[EZLayoutSize alloc] init];
     size.type = EZLayoutSizeTypeFixedHeight;
-    size.fixedHeight = fixedHeight;
+    size.fixedHeight = heightFixed;
     size.widthPercentage = widthPercentage;
     return size;
 }
 
-+ (instancetype) fixedWidth:(CGFloat)fixedWidth heightPercentage:(CGFloat)heightPercentage {
++ (instancetype)  widthFixed:(CGFloat)widthFixed heightPercentage:(CGFloat)heightPercentage {
     [self sizePercentageValueCheck:heightPercentage];
     EZLayoutSize *size = [[EZLayoutSize alloc] init];
     size.type = EZLayoutSizeTypeFixedWidth;
-    size.fixedWidth = fixedWidth;
+    size.fixedWidth = widthFixed;
     size.heightPercentage = heightPercentage;
     return size;
-}
-
-- (BOOL) heightSet {
-    return !isnan(self.heightPercentage);
-}
-
-- (BOOL) widthSet {
-    return !isnan(self.widthPercentage);
-}
-
-- (BOOL) scaleSet {
-    return !isnan(self.scaleFactor);
 }
 
 + (void) sizePercentageValueCheck:(CGFloat) sizePercentage {

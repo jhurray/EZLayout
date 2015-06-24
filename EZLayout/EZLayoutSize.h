@@ -27,11 +27,12 @@
 + (instancetype) heightPercentage:(CGFloat)heightPercentage widthPercentage:(CGFloat)widthPercentage;
 + (instancetype) heightPercentage:(CGFloat)heightPercentage scaleFactor:(CGFloat)scaleFactor;
 + (instancetype) widthPercentage:(CGFloat)widthPercentage scaleFactor:(CGFloat)scaleFactor;
+
 // Fixed
-+ (instancetype) fixedHeight:(CGFloat)fixedHeight fixedWidth:(CGFloat)fixedWidth;
++ (instancetype)  heightFixed:(CGFloat) heightFixed  widthFixed:(CGFloat) widthFixed;
 // Fixed + Dynamic
-+ (instancetype) fixedHeight:(CGFloat)fixedHeight widthPercentage:(CGFloat)widthPercentage;
-+ (instancetype) fixedWidth:(CGFloat)fixedWidth heightPercentage:(CGFloat)heightPercentage;
++ (instancetype)  heightFixed:(CGFloat) heightFixed widthPercentage:(CGFloat)widthPercentage;
++ (instancetype)  widthFixed:(CGFloat)widthFixed heightPercentage:(CGFloat)heightPercentage;
 
 // Dynamic
 @property (nonatomic) CGFloat heightPercentage;
@@ -40,9 +41,5 @@
 // Fixed
 @property (nonatomic) CGFloat fixedWidth;
 @property (nonatomic) CGFloat fixedHeight;
-
-- (BOOL) heightSet;
-- (BOOL) widthSet;
-- (BOOL) scaleSet;
 
 @end
