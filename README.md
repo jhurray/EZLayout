@@ -28,8 +28,11 @@ Right now Autolayout is the only thing out there. Pretty much everyone seems to 
 * Its slower than frame based layout  
 * Tough to make a dynamic layout (animations, resizing etc...)  
 * Constraints that work on one device may crash on another 
+* Tough to make different constraints for portrait and landscape orientations
 
 I wanted to make a frame based layout library that can easily deal with variable screen sizes and orientation changes, while keeping an simple and expressive syntax. 
+
+I built a simple app with EZLayout called [Tuneder](https://github.com/jhurray/Tuneder). Its like Tinder for quick playlists. Lots of great example code there.
 
 ##Layout Classes
 
