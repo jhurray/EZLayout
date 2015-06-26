@@ -36,6 +36,8 @@ I built a simple app with EZLayout called [Tuneder](https://github.com/jhurray/T
 
 ##Layout Classes
 
+Every UIView of subclass of a UIView now has an **ezSize** and **ezAlignment** property. Any view that is a subview of a **EZLayoutContainerView** will be laid out according to these properties.
+
 ###EZLayoutAlignment
 
 EZLayoutAlignment lets you express how a view is aligned in its superview. It defaults to centered.
@@ -64,7 +66,7 @@ myView.ezSize = [EZLayoutSize widthPercentage:0.85 scaleFactor:0.75];
 [Full list of EZLayoutAlignment options](#api-alignment)
 
 ###EZLayoutContainerView
-EZLayoutContainerView is a UIViewSubclass that aids in the layout of views. All of its subviews are layed out with respects to their size and alignment values.
+EZLayoutContainerView is a UIViewSubclass that aids in the layout of views. All of its subviews are laid out with respects to their size and alignment values.
 
 [Full list of EZLayoutContainerView methods](#api-container)
 
@@ -111,7 +113,7 @@ base = [EZLayoutContainerView container];
 subview = [EZLayoutContainerView ezMake:^(UIView *make) {
    make.ezSize = [EZLayoutSize heightPercentage:0.8 widthPercentage:0.8];
 }];
-// subview will be layed out with the appropriate size and alignment in the base container.
+// subview will be laid out with the appropriate size and alignment in the base container.
 [subview attachToContainerView:base];
 ```
 #####Subview Heirarchy
@@ -176,7 +178,7 @@ The following properties are shortcuts to the values of the views frame. These p
 ```
 
 ##Debug Mode
-To see how views are layed out you can set the kEZDebugMode flag to YES. This will add Dotted lines around all views layed out in EZLayoutContainerViews. It is extremely useful for debugging. You can find this flag defined in [EZLayoutConstants.h](./EZLayout/EZLayoutConstants.h) .
+To see how views are laid out you can set the kEZDebugMode flag to YES. This will add Dotted lines around all views laid out in EZLayoutContainerViews. It is extremely useful for debugging. You can find this flag defined in [EZLayoutConstants.h](./EZLayout/EZLayoutConstants.h) .
 
 ```objective-c
 /* DEBUG */
