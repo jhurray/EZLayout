@@ -32,7 +32,7 @@
         make.backgroundColor = [UIColor blueColor];
         make.layer.cornerRadius = 8.0;
         make.ezAlignment = [EZLayoutAlignment topPercentage:0.1];
-        make.ezSize = [EZLayoutSize fixedHeight:40 fixedWidth:40];
+        make.ezSize = [EZLayoutSize heightFixed:40 widthFixed:40];
         make.layer.masksToBounds = YES;
     }];
     imageView.image = [UIImage imageNamed:@"profile_pic"];

@@ -43,6 +43,7 @@
 - (NSArray *) rectsForLayout;
 - (CGRect) rectForPosition:(NSUInteger)position;
 - (void) removeSubviews;
+- (void) removeCurrentViews;
 - (BOOL) shouldLayoutLandscape;
 - (NSArray *) currentViews;
 - (NSArray *) currentPercentages;
@@ -219,7 +220,7 @@
 // Used to start EZLayout
 - (void) attachToViewController:(UIViewController *)viewController {
     for (UIView *view in viewController.view.subviews) {
-        if ([view isKindOfClass:self.class]) {
+        if ([view isKindOfClass:[EZLayoutContainerView class]]) {
             NSAssert(NO, @"EZLayout Fatal Error: An EZLayoutContainerView is already attached to this view controller.");
         }
     }
@@ -235,7 +236,7 @@
 
 - (void) attachToTableViewCell:(UITableViewCell *)cell {
     for (UIView *view in cell.contentView.subviews) {
-        if ([view isKindOfClass:self.class]) {
+        if ([view isKindOfClass:[EZLayoutContainerView class]]) {
             NSAssert(NO, @"EZLayout Fatal Error: An EZLayoutContainerView is already attached to this table view cell.");
         }
     }
@@ -245,8 +246,8 @@
 }
 
 - (void) attachToContainerView:(EZLayoutContainerView *)containerView {
-    self.isTopContainer = YES;
     [containerView addSubview:self];
+    [containerView ezLayoutSubviews];
 }
 
 - (void) orientationChanged:(NSNotification *)notification {
@@ -288,7 +289,7 @@
 
 // Lays out views top to bottom
 - (void) verticallyLayoutViews:(NSArray *)views withPercentages:(NSArray *)percentages {
-     self.portraitType = EZLayoutContainerViewTypeVertical;
+    self.portraitType = EZLayoutContainerViewTypeVertical;
     self.views = views;
     self.percentages = percentages;
     [self sanityCheck];
@@ -386,13 +387,29 @@
 
 #pragma mark - Other
 - (void) ezLayoutSubviews {
-    [self removeSubviews];
+    [self removeCurrentViews];
     if (kEZDebugMode) {
         [EZLayoutDebugLayer removeAllFromView:self];
     }
     if (self.isTopContainer) {
         self.frame = self.superview.bounds;
     }
+    
+    // All Subviews not layed out Horizontally or Vertically
+    // Views in the background
+    for (UIView *view in self.subviews) {
+        [view calculateSizeAndAlignmentValuesInContainerRect:self.bounds];
+        [view calculateViewInContainerRect:self.bounds];
+        if (view.frameWasSetBlock) {
+            view.frameWasSetBlock(self);
+        }
+        if ([view isKindOfClass:[EZLayoutContainerView class]]) {
+            EZLayoutContainerView *ezView = (EZLayoutContainerView *)view;
+            [ezView ezLayoutSubviews];
+        }
+    }
+    
+    // Layout vertical or horizontal
     [self checkPercentagesNeedCalculations];
     NSArray *rects = [self rectsForLayout];
     for (NSUInteger idx=0; idx < self.numViews; ++idx) {
@@ -413,7 +430,7 @@
         if (viewForLayout.frameWasSetBlock) {
             viewForLayout.frameWasSetBlock(self);
         }
-        if ([viewForLayout isKindOfClass:self.class]) {
+        if ([viewForLayout isKindOfClass:[EZLayoutContainerView class]]) {
             EZLayoutContainerView *ezViewForLayout = (EZLayoutContainerView *)viewForLayout;
             [ezViewForLayout ezLayoutSubviews];
         }
@@ -453,10 +470,10 @@
     if (self.landscapeFixedLengths && self.landscapePercentagesNeedCalculation) {
         if (self.type == EZLayoutContainerViewTypeHorizontal) {
             self.landscapePercentages = [self calculatePercentagesFromLengths:self.fixedLengths
-                                                     containerLength:self.superview.ezWidth];
+                                                              containerLength:self.superview.ezWidth];
         } else {
             self.landscapePercentages = [self calculatePercentagesFromLengths:self.fixedLengths
-                                                     containerLength:self.superview.ezHeight];
+                                                              containerLength:self.superview.ezHeight];
         }
     }
 }
@@ -576,7 +593,7 @@
     CGFloat percentage = ((NSNumber *)[self.currentPercentages objectAtIndex:position]).floatValue;
     CGFloat cumulativePercentage = 0.0;
     for (NSUInteger idx=0; idx < position; ++idx) {
-       cumulativePercentage += ((NSNumber *)[self.currentPercentages objectAtIndex:idx]).floatValue;
+        cumulativePercentage += ((NSNumber *)[self.currentPercentages objectAtIndex:idx]).floatValue;
     }
     
     CGFloat currentHeight = self.ezHeight;
@@ -591,6 +608,12 @@
 }
 
 - (void) removeSubviews {
+    for (UIView *view in self.subviews) {
+        [view removeFromSuperview];
+    }
+}
+
+- (void) removeCurrentViews {
     for (id viewObject in self.currentViews) {
         if ([viewObject isKindOfClass:[NSNull class]]) {
             continue;
