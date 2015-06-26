@@ -8,8 +8,20 @@ A new take on iOS layouts using percentages. Imagine UIStackViews on crack. Good
 
 <img src="./images/example-img.png"></img>
 
+###Usage
+
+Either clone the repo and manually add the Files in [EZLayout](./EZLayout) or add the following to your Podfile
+
+```
+pod 'EZLayout', '~> 0.1.0'
+```
+Then just import the following header.
+
+```objective-c
+#import "EZLayout.h"
+```
 ###Why I made EZLayout
-Right now Autolayout is the only thing out there. Pretty much everyone seems to have adopted it and it monopolizes on the layout game. There are countless libraries built around autolayout to try and simplify it ([Masonry](https://github.com/SnapKit/Masonry), [PureLayout](https://github.com/smileyborg/PureLayout), etc..) but at the end of the day I still dont like it.
+Right now Autolayout is the only thing out there. Pretty much everyone seems to have adopted it and it monopolizes on the layout game. There are countless libraries built around autolayout to try and simplify it ([Masonry](https://github.com/SnapKit/Masonry), [PureLayout](https://github.com/smileyborg/PureLayout), etc..) but at the end of the day it still just doesn't do it for me.
 
 #####Cons of AutoLayout:
    
@@ -178,6 +190,25 @@ In [EZLayoutConstants.h](./EZLayout/EZLayoutConstants.h) there are a ton of prec
 ```objective-c
 [container verticallyLayoutViews:@[view1, view2, view3] 
 	     withLandscapePercentages:@[kEZSeventh, kEZTwoSevenths, kEZFourSevenths]];
+```
+
+##Shorthand
+Some of these methods are a little bulky. If you are an EZLayout Expert and want shorter class names and methods, import the following header.
+
+```objective-c
+#import "EZLayout+Shorthand.h"
+```
+
+```objective-c
+EZLayoutContainerView -> EZContainerView
+EZLayoutSize -> EZSize
+EZLayoutAlignment - > EZAlignment
+
+view.ezAlignment = [EZLayoutAlignment topPercentage:0.1 rightFixed:40];
+// becomes
+view.ezAlignment = [EZAlignment tP:0.1 rF:40];
+
+// There are many more shorthand methods for the classes above. Try it out!
 ```
 
 ##<a name="api"></a>API Cheatsheet

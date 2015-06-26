@@ -214,6 +214,9 @@
 
 - (void) valueCheck:(CGRect)rect {
     BOOL rectIsBad = isnan(rect.origin.x) || isnan(rect.origin.y) || isnan(rect.size.width) || isnan(rect.size.height);
+    if (rectIsBad) {
+        NSLog(@"%@ is not a legal frame.", NSStringFromCGRect(rect));
+    }
     NSAssert(!rectIsBad, @"EZLayout Fatal Error: This view's (%@) frame contains a NAN value. Please review your EZLayout code.", NSStringFromClass(self.class));
 }
 
