@@ -60,6 +60,8 @@
 }
 
 - (void) setupEZLayout {
+    
+    // Sets up Top Half
     self.detailTextView = [UITextView ezMake:^(UIView *make) {
         make.ezSize = [EZLayoutSize heightPercentage:0.8 widthPercentage:0.85];
         make.ezAlignment = [EZLayoutAlignment topFixed:0];
@@ -79,6 +81,8 @@
     
     EZLayoutContainerView *descriptionContainer = [EZLayoutContainerView container];
     [descriptionContainer verticallyLayoutViews:@[_profileImageView, _detailTextView] withPercentages:@[@0.35, @0.65]];
+    
+    // Sets up Bottom Half
     
     self.coolStuffLabel = [UILabel ezMake:^(UIView *make) {
         make.ezSize = [EZLayoutSize heightPercentage:1.0 widthPercentage:0.6];
@@ -101,8 +105,11 @@
     EZLayoutContainerView *coolStuffContainer = [EZLayoutContainerView container];
     [coolStuffContainer verticallyLayoutViews:@[ self.coolStuffLabel, coolStuffImageContainer] withPercentages:@[@0.2, @0.8]];
     
+    // Puts top and bottom together
     EZLayoutContainerView *base = [EZLayoutContainerView containerWithViewController:self];
     [base verticallyLayoutViews:@[descriptionContainer, coolStuffContainer] withPercentages:@[@0.5, @0.5]];
+    
+    // Puts top and bottom next to each other for landscape mode.
     [base horizontallyLayoutLandscapeViews:@[descriptionContainer, coolStuffContainer] withLandscapePercentages:@[@0.5, @0.5]];
     
     // Adds image view to back of view controller
