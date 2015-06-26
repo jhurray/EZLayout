@@ -29,11 +29,15 @@
         make.backgroundColor = [UIColor redColor];
     }];
     
-    NSArray *yellowViews = [UIView ezMakeViews:2 make:^(UIView *make, NSUInteger index) {
+    NSArray *yellowViews = [UIView ezMakeViews:3 make:^(UIView *make, NSUInteger index) {
         make.backgroundColor = [UIColor yellowColor];
         make.ezSize = [EZLayoutSize heightPercentage:0.5 widthPercentage:0.9];
         make.ezAlignment = [EZLayoutAlignment bottomPercentage:0.05];
     }];
+    
+    EZLayoutContainerView *container1 = [[EZLayoutContainerView alloc] initWithViewController:self];
+    [v2 verticallyLayoutViews:@[yellowViews[0], yellowViews[1], yellowViews[2]] withPercentages:@[kEZThird, kEZThird, kEZThird]];
+    [container1 horizontallyLayoutViews:@[v1, v2] withPercentages:@[kEZHalf, kEZHalf]];
 
 /* The same as: */
 //    UIView *v1 = [[UIView alloc] init];
@@ -61,10 +65,6 @@
 //    v6.ezSize = [EZLayoutSize heightPercentage:0.5 widthPercentage:0.9];
 //    v6.ezAlignment = [EZLayoutAlignment bottom:0.05];
 //    v6.backgroundColor = [UIColor yellowColor];
-    
-    EZLayoutContainerView *container1 = [[EZLayoutContainerView alloc] initWithViewController:self];
-    [v2 verticallyLayoutViews:@[kEZBlankSpace, yellowViews[0], kEZBlankSpace, yellowViews[1]] withPercentages:@[kEZFourth, kEZFourth, kEZFourth, kEZFourth]];
-    [container1 horizontallyLayoutViews:@[v1, v2] withPercentages:@[kEZHalf, kEZHalf]];
     
 }
 

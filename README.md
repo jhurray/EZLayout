@@ -6,61 +6,7 @@ A new take on iOS layouts using percentages. Imagine UIStackViews on crack. Good
 <img width="62%" src="./images/EZLayoutExample.gif"></img>
 <img width="35%" src="./images/EZLayoutExample_debug.png"></img>
 
-```objective-c
-    // Sets up Top Half
-    self.detailTextView = [UITextView ezMake:^(UIView *make) {
-        make.ezSize = [EZLayoutSize heightPercentage:0.8 widthPercentage:0.85];
-        make.ezAlignment = [EZLayoutAlignment top];
-        make.layer.cornerRadius = 8.0;
-        make.frameWasSetBlock = ezFrameWasSetBlock() {
-            [self.detailTextView resizeFontToFit];
-        };
-    }];
-    
-    self.profileImageView = [UIImageView ezMake:^(UIView *make) {
-        make.ezSize = [EZLayoutSize heightPercentage:1.1 scaleFactor:1.0];
-        make.ezAlignment = [EZLayoutAlignment bottomPercentage:-0.2];
-        make.frameWasSetBlock = ezFrameWasSetBlock() {
-            self.profileImageView.layer.cornerRadius = self.profileImageView.ezHeight/2.0;
-        };
-    }];
-    
-    EZLayoutContainerView *descriptionContainer = [EZLayoutContainerView container];
-    [descriptionContainer verticallyLayoutViews:@[_profileImageView, _detailTextView] withPercentages:@[@0.35, @0.65]];
-    
-    // Sets up Bottom Half
-    
-    self.coolStuffLabel = [UILabel ezMake:^(UIView *make) {
-        make.ezSize = [EZLayoutSize heightPercentage:1.0 widthPercentage:0.6];
-    }];
-    
-    NSArray *coolStuffImageNames = @[@"tom_brady", @"starwars", @"corgis"];
-    NSArray *coolStuffImages = [UIImageView ezMakeViews:3 make:^(UIView *make, NSUInteger index) {
-        UIImageView *imageView = (UIImageView *)make;
-        imageView.image = [UIImage imageNamed:coolStuffImageNames[index]];
-        imageView.ezSize = [EZLayoutSize widthPercentage:0.85 scaleFactor:1.0];
-		[self setupImageView:imageView];
-    }];
-    
-    EZLayoutContainerView *coolStuffImageContainer = [EZLayoutContainerView containerWithHorizontalViews:coolStuffImages
-                                                                                             percentages:@[kEZThird, kEZThird, kEZThird]];
-    
-    EZLayoutContainerView *coolStuffContainer = [EZLayoutContainerView container];
-    [coolStuffContainer verticallyLayoutViews:@[ self.coolStuffLabel, coolStuffImageContainer] withPercentages:@[@0.2, @0.8]];
-    
-    // Puts top and bottom together
-    EZLayoutContainerView *base = [EZLayoutContainerView containerWithViewController:self];
-    [base verticallyLayoutViews:@[descriptionContainer, coolStuffContainer] withPercentages:@[@0.5, @0.5]];
-    
-    // Puts top and bottom next to each other for landscape mode.
-    [base horizontallyLayoutLandscapeViews:@[descriptionContainer, coolStuffContainer] withLandscapePercentages:@[@0.5, @0.5]];
-    
-    // Adds image view to back of view controller
-    self.backgroundImageView = [UIImageView ezMakeBasic];
-    EZLayoutContainerView *imageContainer = [EZLayoutContainerView containerFilledWithView:self.backgroundImageView];
-    [imageContainer attachToContainerView:base];
-
-```
+<img src="./images/example-img.png"></img>
 
 ###Why I made EZLayout
 Right now Autolayout is the only thing out there. Pretty much everyone seems to have adopted it and it monopolizes on the layout game. There are countless libraries built around autolayout to try and simplify it ([Masonry](https://github.com/SnapKit/Masonry), [PureLayout](https://github.com/smileyborg/PureLayout), etc..) but at the end of the day I still dont like it.
@@ -107,18 +53,26 @@ EZLayoutContainerView is a UIViewSubclass that aids in the layout of views. All 
 
 [Full list of EZLayoutContainerView methods](#api-container)
 
+#####Horizontal + Vertical Stack Layouts
 A base container view should be attached to a view controller or tableview cell. 
 
 ```objective-c
 EZLayoutContainerView *base = [EZLayoutContainerView containerWithViewController:self];
 ```
 
+#####Horizontal + Vertical Stack Layouts
 Containers can layout views horizontally or vertically with percentages.
 
 ```objective-c
-[container verticallyLayoutViews:@[descriptionContainer, coolStuffContainer] withLandscapePercentages:@[@0.5, @0.5]];
+[container verticallyLayoutViews:@[v1, v2, coolStuffContainer] withPercentages:@[@0.5, @0.5]];
 ```
+#####Blank Spaces
+Containers can layout views with blank spaces in between by using **kEZBlankSpace**.
 
+```objective-c
+[container verticallyLayoutViews:@[v1, kEZBlankSpace, v2] withPercentages:@[@0.3, @0.4 @0.3]];
+```
+#####Fixed Sizes
 Containers can layout views with fixed widths as well. You can mix in flexible widths in these methods.
 
 ```objective-c
@@ -128,13 +82,13 @@ Containers can layout views with fixed widths as well. You can mix in flexible w
 // You can give ratios of flexibilities as well. Here both view2 and view3 are of flexible height, but view3 is twice the height of view2.
 [container verticallyLayoutViews:@[view1, view2, view3] withFixedHeights:@[@20, ezFlexRatio(1.0), ezFlexRatio(2.0)]];
 ```
-
+#####Landscape Layouts
 Containers can have different layout schemes for portrait and landscape mode. If you dont set landscape layouts then the default landscape layout will be the same as the portrait layout.
 
 ```objective-c
 [container horizontallyLayoutLandscapeViews:@[descriptionContainer, coolStuffContainer] withLandscapePercentages:@[@0.5, @0.5]];
 ```
-
+#####Adding Subviews
 Containers can add other container views as subviews as well.
 
 ```objective-c
@@ -145,7 +99,7 @@ subview = [EZLayoutContainerView ezMake:^(UIView *make) {
 // subview will be layed out with the appropriate size and alignment in the base container.
 [subview attachToContainerView:base];
 ```
-
+#####Subview Heirarchy
 Containers will organize their subviews by tags. Larger tags will be above smaller or nil tags.
 
 ```objective-c
