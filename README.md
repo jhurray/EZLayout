@@ -13,7 +13,7 @@ A new take on iOS layouts using percentages. Imagine UIStackViews on crack. Good
 Either clone the repo and manually add the Files in [EZLayout](./EZLayout) or add the following to your Podfile
 
 ```
-pod 'EZLayout', '~> 0.1.0'
+pod 'EZLayout', '~> 0.1.1'
 ```
 Then just import the following header.
 
@@ -110,7 +110,7 @@ Containers can add other container views as subviews as well.
 
 ```objective-c
 base = [EZLayoutContainerView container];
-subview = [EZLayoutContainerView ezMake:^(UIView *make) {
+subview = [UIView ezMake:^(UIView *make) {
    make.ezSize = [EZLayoutSize heightPercentage:0.8 widthPercentage:0.8];
 }];
 // subview will be laid out with the appropriate size and alignment in the base container.
@@ -120,17 +120,17 @@ subview = [EZLayoutContainerView ezMake:^(UIView *make) {
 Containers will organize their subviews by tags. Larger tags will be above smaller or nil tags.
 
 ```objective-c
-EZLayoutContainerView *c1 = [EZLayoutContainerView container];
-EZLayoutContainerView *c2 = [EZLayoutContainerView container];
+UIView *v1 = [UIView ezMakeBasic];
+UIView *v2 = [UIView ezMakeBasic];
 EZLayoutContainerView *base = [EZLayoutContainerView container];
 
-// c2 will be above c1
-c1.tag = 5;
-c2.tag = 10;
-[c1 attachToContainerView:base];
-[c2 attachToContainerView:base];
+// v2 will be above v1
+v1.tag = 5;
+v2.tag = 10;
+[v1 attachToContainerView:base];
+[v2 attachToContainerView:base];
 ```
-You can set the **orderSubviewsByTag** property to ```NO``` if you dont want this to be the case. 
+You can set the **orderSubviewsByTag** property to ```false``` if you dont want this to be the case. 
 
 ##UIView+EZLayout
 
@@ -161,8 +161,8 @@ The **frameWasSetBlock** property is a block that will be called after the views
 
 ```objective-c
 view.frameWasSetBlock = ezFrameWasSetBlock() {
-            self.view.layer.cornerRadius = self.view.ezHeight/2.0;
-        };
+    self.view.layer.cornerRadius = self.view.ezHeight/2.0;
+};
 ```
 
 ###Helpers
@@ -205,9 +205,9 @@ Some of these methods are a little bulky. If you are an EZLayout Expert and want
 ```
 
 ```objective-c
-EZLayoutContainerView -> EZContainerView
-EZLayoutSize -> EZSize
-EZLayoutAlignment - > EZAlignment
+// EZLayoutContainerView -> EZContainerView
+// EZLayoutSize -> EZSize
+// EZLayoutAlignment - > EZAlignment
 
 view.ezAlignment = [EZLayoutAlignment topPercentage:0.1 rightFixed:40];
 // becomes
