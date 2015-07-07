@@ -245,11 +245,6 @@
     [cell.contentView addSubview:self];
 }
 
-- (void) attachToContainerView:(EZLayoutContainerView *)containerView {
-    [containerView addSubview:self];
-    [containerView ezLayoutSubviews];
-}
-
 - (void) orientationChanged:(NSNotification *)notification {
     [self.superview layoutSubviews];
     [self ezLayoutSubviewsAnimated];
@@ -328,8 +323,8 @@
 #pragma mark - Landscape Orientation
 
 /* Fill */
-- (void) fillWithLandscapeView:(UIView *)view {
-    [self horizontallyLayoutLandscapeViews:@[view] withLandscapePercentages:@[@1.0]];
+- (void) fillWithLandscapeView:(UIView *)landscapVeiew {
+    [self horizontallyLayoutLandscapeViews:@[landscapVeiew] withLandscapePercentages:@[@1.0]];
 }
 
 /* Dynamic */

@@ -34,6 +34,11 @@
     return [NSArray arrayWithArray:array];
 }
 
+- (void) attachToContainerView:(EZLayoutContainerView *)containerView {
+    [containerView addSubview:self];
+    [containerView ezLayoutSubviews];
+}
+
 #pragma mark - EZLayout Classes
 
 - (EZFrameWasSetBlock) frameWasSetBlock {

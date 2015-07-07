@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "EZLayoutAlignment.h"
 #import "EZLayoutSize.h"
+#import "EZLayoutContainerView.h"
 
 typedef void (^EZMakeBlock)(UIView *make);
 #define ezMakeBlock(make) ^void (UIView *make)
@@ -23,6 +24,9 @@ typedef void (^EZFrameWasSetBlock)();
 + (instancetype) ezMakeBasic;
 + (instancetype) ezMake:(EZMakeBlock)makeBlock;
 + (NSArray *) ezMakeViews:(NSUInteger)numViews make:(void(^)(UIView *make, NSUInteger index))makeBlock;
+
+// Adds View ot EZLayoutContainerView for layout
+- (void) attachToContainerView:(EZLayoutContainerView *)containerView;
 
 #pragma mark - Helper Blocks
 @property (nonatomic, copy) EZFrameWasSetBlock frameWasSetBlock;

@@ -55,7 +55,6 @@
 // Used to start EZLayout
 - (void) attachToViewController:(UIViewController *)viewController;
 - (void) attachToTableViewCell:(UITableViewCell *)cell;
-- (void) attachToContainerView:(EZLayoutContainerView *)containerView;
 
 #pragma mark - Portrait Orientation
 // Must be set
@@ -84,7 +83,7 @@
 @property (nonatomic, strong, readonly) NSArray *landscapePercentages;
 
 /* Fill */
-- (void) fillWithLandscapeView:(UIView *)view;
+- (void) fillWithLandscapeView:(UIView *)landscapVeiew;
 
 /* Dynamic */
 // lays out views left to right
