@@ -6,6 +6,7 @@
 //  Copyright (c) 2015 Jeff Hurray. All rights reserved.
 //
 
+#import "EZLayoutContainerView+Landscape.h"
 #import "EZLayoutContainerView+Shorthand.h"
 
 @implementation EZLayoutContainerView (Shorthand)

@@ -20,11 +20,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    ViewController *vc = [[ViewController alloc] init];
-    vc.title = @"EZLayout ViewController Example";
     EZLayoutExampleViewController *exampleVC = [[EZLayoutExampleViewController alloc] init];
     exampleVC.title = @"EZLayout ViewController Example";
-    UINavigationController *nav1 = [[UINavigationController alloc] initWithRootViewController:vc];
+    UINavigationController *nav1 = [[UINavigationController alloc] initWithRootViewController:exampleVC];
     TableViewController *table = [[TableViewController alloc] initWithStyle:UITableViewStylePlain];
     table.title = @"EZLayout TableViewCell Example";
     UINavigationController *nav2 = [[UINavigationController alloc] initWithRootViewController:table];

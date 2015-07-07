@@ -14,6 +14,7 @@
 #import "EZLayoutDebugLayer.h"
 #import "EZLayoutFlexibleRatio.h"
 #import "EZLayoutContainerView+Private.h"
+#import "EZLayoutContainerView+Landscape.h"
 
 @interface EZLayoutContainerView()
 
@@ -319,65 +320,65 @@
         self.views = views;
     }
 }
-
-#pragma mark - Landscape Orientation
-
-/* Fill */
-- (void) fillWithLandscapeView:(UIView *)landscapVeiew {
-    [self horizontallyLayoutLandscapeViews:@[landscapVeiew] withLandscapePercentages:@[@1.0]];
-}
-
-/* Dynamic */
-// lays out views left to right
-- (void) horizontallyLayoutLandscapeViews:(NSArray *)landscapeViews withLandscapePercentages:(NSArray *)landscapePercentages {
-    self.landscapeType = EZLayoutContainerViewTypeHorizontal;
-    self.landscapeViews = landscapeViews;
-    self.landscapePercentages = landscapePercentages;
-    [self sanityCheck];
-    [self ezLayoutSubviews];
-}
-
-// Lays out views top to bottom
-- (void) verticallyLayoutLandscapeViews:(NSArray *)landscapeViews withLandscapePercentages:(NSArray *)landscapePercentages {
-    self.landscapeType = EZLayoutContainerViewTypeVertical;
-    self.landscapeViews = landscapeViews;
-    self.landscapePercentages = landscapePercentages;
-    [self sanityCheck];
-    [self ezLayoutSubviews];
-}
-
-/* Fixed + Dynamic */
-// lays out views left to right
-- (void) horizontallyLayoutLandscapeViews:(NSArray *)landscapeViews withFixedLandscapeWidths:(NSArray *)landscapeWidths {
-    self.landscapeType = EZLayoutContainerViewTypeHorizontal;
-    self.landscapeFixedLengths = landscapeWidths;
-    if (self.superview) {
-        self.landscapePercentagesNeedCalculation = NO;
-        CGFloat containterLength = [UIDevice isLandscape] ? self.superview.ezWidth : self.superview.ezHeight;
-        NSArray *percentages = [self calculatePercentagesFromLengths:landscapeWidths containerLength:containterLength];
-        [self horizontallyLayoutLandscapeViews:landscapeViews withLandscapePercentages:percentages];
-        
-    } else {
-        self.landscapePercentagesNeedCalculation = YES;
-        self.landscapeViews = landscapeViews;
-    }
-}
-
-// Lays out views top to bottom
-- (void) verticallyLayoutLandscapeViews:(NSArray *)landscapeViews withFixedLandscapeHeights:(NSArray *)landscapeHeights {
-    self.landscapeType = EZLayoutContainerViewTypeVertical;
-    self.landscapeFixedLengths = landscapeHeights;
-    if (self.superview) {
-        self.landscapePercentagesNeedCalculation = NO;
-        CGFloat containterLength = [UIDevice isLandscape] ? self.superview.ezHeight : self.superview.ezWidth;
-        NSArray *percentages = [self calculatePercentagesFromLengths:landscapeHeights containerLength:containterLength];
-        [self verticallyLayoutLandscapeViews:landscapeViews withLandscapePercentages:percentages];
-        
-    } else {
-        self.landscapePercentagesNeedCalculation = YES;
-        self.landscapeViews = landscapeViews;
-    }
-}
+//
+//#pragma mark - Landscape Orientation
+//
+///* Fill */
+//- (void) fillWithLandscapeView:(UIView *)landscapVeiew {
+//    [self horizontallyLayoutLandscapeViews:@[landscapVeiew] withLandscapePercentages:@[@1.0]];
+//}
+//
+///* Dynamic */
+//// lays out views left to right
+//- (void) horizontallyLayoutLandscapeViews:(NSArray *)landscapeViews withLandscapePercentages:(NSArray *)landscapePercentages {
+//    self.landscapeType = EZLayoutContainerViewTypeHorizontal;
+//    self.landscapeViews = landscapeViews;
+//    self.landscapePercentages = landscapePercentages;
+//    [self sanityCheck];
+//    [self ezLayoutSubviews];
+//}
+//
+//// Lays out views top to bottom
+//- (void) verticallyLayoutLandscapeViews:(NSArray *)landscapeViews withLandscapePercentages:(NSArray *)landscapePercentages {
+//    self.landscapeType = EZLayoutContainerViewTypeVertical;
+//    self.landscapeViews = landscapeViews;
+//    self.landscapePercentages = landscapePercentages;
+//    [self sanityCheck];
+//    [self ezLayoutSubviews];
+//}
+//
+///* Fixed + Dynamic */
+//// lays out views left to right
+//- (void) horizontallyLayoutLandscapeViews:(NSArray *)landscapeViews withFixedLandscapeWidths:(NSArray *)landscapeWidths {
+//    self.landscapeType = EZLayoutContainerViewTypeHorizontal;
+//    self.landscapeFixedLengths = landscapeWidths;
+//    if (self.superview) {
+//        self.landscapePercentagesNeedCalculation = NO;
+//        CGFloat containterLength = [UIDevice isLandscape] ? self.superview.ezWidth : self.superview.ezHeight;
+//        NSArray *percentages = [self calculatePercentagesFromLengths:landscapeWidths containerLength:containterLength];
+//        [self horizontallyLayoutLandscapeViews:landscapeViews withLandscapePercentages:percentages];
+//        
+//    } else {
+//        self.landscapePercentagesNeedCalculation = YES;
+//        self.landscapeViews = landscapeViews;
+//    }
+//}
+//
+//// Lays out views top to bottom
+//- (void) verticallyLayoutLandscapeViews:(NSArray *)landscapeViews withFixedLandscapeHeights:(NSArray *)landscapeHeights {
+//    self.landscapeType = EZLayoutContainerViewTypeVertical;
+//    self.landscapeFixedLengths = landscapeHeights;
+//    if (self.superview) {
+//        self.landscapePercentagesNeedCalculation = NO;
+//        CGFloat containterLength = [UIDevice isLandscape] ? self.superview.ezHeight : self.superview.ezWidth;
+//        NSArray *percentages = [self calculatePercentagesFromLengths:landscapeHeights containerLength:containterLength];
+//        [self verticallyLayoutLandscapeViews:landscapeViews withLandscapePercentages:percentages];
+//        
+//    } else {
+//        self.landscapePercentagesNeedCalculation = YES;
+//        self.landscapeViews = landscapeViews;
+//    }
+//}
 
 
 #pragma mark - Other
@@ -637,5 +638,71 @@
 - (BOOL) number:(CGFloat)num equalTo:(CGFloat)target withinRange:(CGFloat)range {
     return num >= target-range && num <= target+range;
 }
+
+@end
+
+@implementation EZLayoutContainerView (Landscape)
+@dynamic landscapeViews, landscapePercentages;
+
+
+#pragma mark - Landscape Orientation
+
+/* Fill */
+- (void) fillWithLandscapeView:(UIView *)landscapVeiew {
+    [self horizontallyLayoutLandscapeViews:@[landscapVeiew] withLandscapePercentages:@[@1.0]];
+}
+
+/* Dynamic */
+// lays out views left to right
+- (void) horizontallyLayoutLandscapeViews:(NSArray *)landscapeViews withLandscapePercentages:(NSArray *)landscapePercentages {
+    self.landscapeType = EZLayoutContainerViewTypeHorizontal;
+    self.landscapeViews = landscapeViews;
+    self.landscapePercentages = landscapePercentages;
+    [self sanityCheck];
+    [self ezLayoutSubviews];
+}
+
+// Lays out views top to bottom
+- (void) verticallyLayoutLandscapeViews:(NSArray *)landscapeViews withLandscapePercentages:(NSArray *)landscapePercentages {
+    self.landscapeType = EZLayoutContainerViewTypeVertical;
+    self.landscapeViews = landscapeViews;
+    self.landscapePercentages = landscapePercentages;
+    [self sanityCheck];
+    [self ezLayoutSubviews];
+}
+
+/* Fixed + Dynamic */
+// lays out views left to right
+- (void) horizontallyLayoutLandscapeViews:(NSArray *)landscapeViews withFixedLandscapeWidths:(NSArray *)landscapeWidths {
+    self.landscapeType = EZLayoutContainerViewTypeHorizontal;
+    self.landscapeFixedLengths = landscapeWidths;
+    if (self.superview) {
+        self.landscapePercentagesNeedCalculation = NO;
+        CGFloat containterLength = [UIDevice isLandscape] ? self.superview.ezWidth : self.superview.ezHeight;
+        NSArray *percentages = [self calculatePercentagesFromLengths:landscapeWidths containerLength:containterLength];
+        [self horizontallyLayoutLandscapeViews:landscapeViews withLandscapePercentages:percentages];
+        
+    } else {
+        self.landscapePercentagesNeedCalculation = YES;
+        self.landscapeViews = landscapeViews;
+    }
+}
+
+// Lays out views top to bottom
+- (void) verticallyLayoutLandscapeViews:(NSArray *)landscapeViews withFixedLandscapeHeights:(NSArray *)landscapeHeights {
+    self.landscapeType = EZLayoutContainerViewTypeVertical;
+    self.landscapeFixedLengths = landscapeHeights;
+    if (self.superview) {
+        self.landscapePercentagesNeedCalculation = NO;
+        CGFloat containterLength = [UIDevice isLandscape] ? self.superview.ezHeight : self.superview.ezWidth;
+        NSArray *percentages = [self calculatePercentagesFromLengths:landscapeHeights containerLength:containterLength];
+        [self verticallyLayoutLandscapeViews:landscapeViews withLandscapePercentages:percentages];
+        
+    } else {
+        self.landscapePercentagesNeedCalculation = YES;
+        self.landscapeViews = landscapeViews;
+    }
+}
+
 
 @end

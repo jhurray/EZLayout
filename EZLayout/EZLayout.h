@@ -16,4 +16,8 @@
 #import "EZLayoutConstants.h"
 #import "EZLayoutFlexibleRatio.h"
 
+// Adds landscape methods to EZLayoutContainerView
+// Coment out if you do not need them
+#import "EZLayoutContainerView+Landscape.h"
+
 #endif

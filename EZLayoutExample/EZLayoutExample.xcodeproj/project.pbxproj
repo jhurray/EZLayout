@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2609D7021B4C6BF000AAAF12 /* EZLayoutContainerView+Landscape.m in Sources */ = {isa = PBXBuildFile; fileRef = 2609D7011B4C6BF000AAAF12 /* EZLayoutContainerView+Landscape.m */; };
 		26278F241B30905000D9B58D /* EZLayoutFlexibleRatio.m in Sources */ = {isa = PBXBuildFile; fileRef = 26278F231B30905000D9B58D /* EZLayoutFlexibleRatio.m */; };
 		26278F271B30992400D9B58D /* EZLayoutAlignment+Private.m in Sources */ = {isa = PBXBuildFile; fileRef = 26278F261B30992400D9B58D /* EZLayoutAlignment+Private.m */; };
 		26278F2A1B31FD8100D9B58D /* EZLayoutSize+Private.m in Sources */ = {isa = PBXBuildFile; fileRef = 26278F291B31FD8100D9B58D /* EZLayoutSize+Private.m */; };
@@ -45,6 +46,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2609D7001B4C6BF000AAAF12 /* EZLayoutContainerView+Landscape.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "EZLayoutContainerView+Landscape.h"; path = "../../EZLayout/EZLayoutContainerView+Landscape.h"; sourceTree = "<group>"; };
+		2609D7011B4C6BF000AAAF12 /* EZLayoutContainerView+Landscape.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "EZLayoutContainerView+Landscape.m"; path = "../../EZLayout/EZLayoutContainerView+Landscape.m"; sourceTree = "<group>"; };
 		26278F221B30905000D9B58D /* EZLayoutFlexibleRatio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EZLayoutFlexibleRatio.h; path = ../../EZLayout/EZLayoutFlexibleRatio.h; sourceTree = "<group>"; };
 		26278F231B30905000D9B58D /* EZLayoutFlexibleRatio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EZLayoutFlexibleRatio.m; path = ../../EZLayout/EZLayoutFlexibleRatio.m; sourceTree = "<group>"; };
 		26278F251B30992400D9B58D /* EZLayoutAlignment+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "EZLayoutAlignment+Private.h"; path = "../../EZLayout/EZLayoutAlignment+Private.h"; sourceTree = "<group>"; };
@@ -218,6 +221,8 @@
 				2637AFB21B38542D00B86082 /* Shorthand */,
 				26724A981B10DD5A006CDCAE /* EZLayoutContainerView.h */,
 				26724A991B10DD5A006CDCAE /* EZLayoutContainerView.m */,
+				2609D7001B4C6BF000AAAF12 /* EZLayoutContainerView+Landscape.h */,
+				2609D7011B4C6BF000AAAF12 /* EZLayoutContainerView+Landscape.m */,
 				26E50D221B10AA2300FB4FF6 /* EZLayoutSize.h */,
 				26E50D231B10AA2300FB4FF6 /* EZLayoutSize.m */,
 				26E50D1C1B10A9AD00FB4FF6 /* EZLayoutAlignment.h */,
@@ -356,6 +361,7 @@
 				26E0FA7C1B25D2B1009BDF1B /* EZLayoutExampleTableViewCell.m in Sources */,
 				26278F241B30905000D9B58D /* EZLayoutFlexibleRatio.m in Sources */,
 				26E50CF51B10A8DD00FB4FF6 /* main.m in Sources */,
+				2609D7021B4C6BF000AAAF12 /* EZLayoutContainerView+Landscape.m in Sources */,
 				2637AFAE1B3853FA00B86082 /* EZLayoutSize+Shorthand.m in Sources */,
 				26724AA31B1246E9006CDCAE /* UIView+EZLayout_Private.m in Sources */,
 				2637AFB11B38542200B86082 /* EZLayoutContainerView+Shorthand.m in Sources */,
