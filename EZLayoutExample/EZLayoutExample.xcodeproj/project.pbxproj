@@ -20,6 +20,7 @@
 		26724A9D1B10DD8B006CDCAE /* UIDevice+EZLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 26724A9C1B10DD8B006CDCAE /* UIDevice+EZLayout.m */; };
 		26724AA31B1246E9006CDCAE /* UIView+EZLayout_Private.m in Sources */ = {isa = PBXBuildFile; fileRef = 26724AA21B1246E8006CDCAE /* UIView+EZLayout_Private.m */; };
 		26724AA71B14B79D006CDCAE /* EZLayoutDebugLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 26724AA61B14B79C006CDCAE /* EZLayoutDebugLayer.m */; };
+		2687ADB51B4D985900573A03 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2687ADB41B4D985900573A03 /* LoginViewController.m */; };
 		268E80221B349DC900F446D0 /* EZLayoutExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 268E80211B349DC900F446D0 /* EZLayoutExampleViewController.m */; };
 		26E0FA7C1B25D2B1009BDF1B /* EZLayoutExampleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E0FA7B1B25D2B1009BDF1B /* EZLayoutExampleTableViewCell.m */; };
 		26E0FA7F1B25D2F0009BDF1B /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E0FA7E1B25D2F0009BDF1B /* TableViewController.m */; };
@@ -73,6 +74,8 @@
 		26724AA41B14758D006CDCAE /* EZLayoutConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = EZLayoutConstants.h; path = ../../EZLayout/EZLayoutConstants.h; sourceTree = "<group>"; };
 		26724AA51B14B79C006CDCAE /* EZLayoutDebugLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EZLayoutDebugLayer.h; path = ../../EZLayout/EZLayoutDebugLayer.h; sourceTree = "<group>"; };
 		26724AA61B14B79C006CDCAE /* EZLayoutDebugLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EZLayoutDebugLayer.m; path = ../../EZLayout/EZLayoutDebugLayer.m; sourceTree = "<group>"; };
+		2687ADB31B4D985800573A03 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		2687ADB41B4D985900573A03 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		268E80201B349DC900F446D0 /* EZLayoutExampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EZLayoutExampleViewController.h; sourceTree = "<group>"; };
 		268E80211B349DC900F446D0 /* EZLayoutExampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EZLayoutExampleViewController.m; sourceTree = "<group>"; };
 		26E0FA7A1B25D2B1009BDF1B /* EZLayoutExampleTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EZLayoutExampleTableViewCell.h; sourceTree = "<group>"; };
@@ -184,6 +187,8 @@
 				26E0FA7B1B25D2B1009BDF1B /* EZLayoutExampleTableViewCell.m */,
 				26E0FA7D1B25D2F0009BDF1B /* TableViewController.h */,
 				26E0FA7E1B25D2F0009BDF1B /* TableViewController.m */,
+				2687ADB31B4D985800573A03 /* LoginViewController.h */,
+				2687ADB41B4D985900573A03 /* LoginViewController.m */,
 			);
 			path = EZLayoutExample;
 			sourceTree = "<group>";
@@ -345,6 +350,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				264676511B370D54002AA069 /* UITextView+EZLayout.m in Sources */,
+				2687ADB51B4D985900573A03 /* LoginViewController.m in Sources */,
 				26724AA71B14B79D006CDCAE /* EZLayoutDebugLayer.m in Sources */,
 				26E50CFB1B10A8DD00FB4FF6 /* ViewController.m in Sources */,
 				26E50CF81B10A8DD00FB4FF6 /* AppDelegate.m in Sources */,

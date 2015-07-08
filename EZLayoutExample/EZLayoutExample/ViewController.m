@@ -65,6 +65,7 @@
 //    v6.ezSize = [EZLayoutSize heightPercentage:0.5 widthPercentage:0.9];
 //    v6.ezAlignment = [EZLayoutAlignment bottom:0.05];
 //    v6.backgroundColor = [UIColor yellowColor];
+
     
 }
 

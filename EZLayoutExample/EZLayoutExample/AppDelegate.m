@@ -10,6 +10,7 @@
 #import "ViewController.h"
 #import "TableViewController.h"
 #import "EZLayoutExampleViewController.h"
+#import "LoginViewController.h"
 
 @interface AppDelegate ()
 
@@ -20,17 +21,21 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    
     EZLayoutExampleViewController *exampleVC = [[EZLayoutExampleViewController alloc] init];
     exampleVC.title = @"EZLayout ViewController Example";
     UINavigationController *nav1 = [[UINavigationController alloc] initWithRootViewController:exampleVC];
     TableViewController *table = [[TableViewController alloc] initWithStyle:UITableViewStylePlain];
     table.title = @"EZLayout TableViewCell Example";
     UINavigationController *nav2 = [[UINavigationController alloc] initWithRootViewController:table];
-    
+    LoginViewController *loginVC = [[LoginViewController alloc] init];
+    loginVC.title = @"Login example";
+    UINavigationController *nav3 = [[UINavigationController alloc] initWithRootViewController:loginVC];
     
     
     UITabBarController *tabs = [[UITabBarController alloc] init];
-    tabs.viewControllers = @[nav1, nav2];
+    tabs.viewControllers = @[nav1, nav2, nav3];
     
     self.window.rootViewController = tabs;
     self.window.backgroundColor = [UIColor whiteColor];

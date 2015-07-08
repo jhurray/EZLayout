@@ -320,65 +320,6 @@
         self.views = views;
     }
 }
-//
-//#pragma mark - Landscape Orientation
-//
-///* Fill */
-//- (void) fillWithLandscapeView:(UIView *)landscapVeiew {
-//    [self horizontallyLayoutLandscapeViews:@[landscapVeiew] withLandscapePercentages:@[@1.0]];
-//}
-//
-///* Dynamic */
-//// lays out views left to right
-//- (void) horizontallyLayoutLandscapeViews:(NSArray *)landscapeViews withLandscapePercentages:(NSArray *)landscapePercentages {
-//    self.landscapeType = EZLayoutContainerViewTypeHorizontal;
-//    self.landscapeViews = landscapeViews;
-//    self.landscapePercentages = landscapePercentages;
-//    [self sanityCheck];
-//    [self ezLayoutSubviews];
-//}
-//
-//// Lays out views top to bottom
-//- (void) verticallyLayoutLandscapeViews:(NSArray *)landscapeViews withLandscapePercentages:(NSArray *)landscapePercentages {
-//    self.landscapeType = EZLayoutContainerViewTypeVertical;
-//    self.landscapeViews = landscapeViews;
-//    self.landscapePercentages = landscapePercentages;
-//    [self sanityCheck];
-//    [self ezLayoutSubviews];
-//}
-//
-///* Fixed + Dynamic */
-//// lays out views left to right
-//- (void) horizontallyLayoutLandscapeViews:(NSArray *)landscapeViews withFixedLandscapeWidths:(NSArray *)landscapeWidths {
-//    self.landscapeType = EZLayoutContainerViewTypeHorizontal;
-//    self.landscapeFixedLengths = landscapeWidths;
-//    if (self.superview) {
-//        self.landscapePercentagesNeedCalculation = NO;
-//        CGFloat containterLength = [UIDevice isLandscape] ? self.superview.ezWidth : self.superview.ezHeight;
-//        NSArray *percentages = [self calculatePercentagesFromLengths:landscapeWidths containerLength:containterLength];
-//        [self horizontallyLayoutLandscapeViews:landscapeViews withLandscapePercentages:percentages];
-//        
-//    } else {
-//        self.landscapePercentagesNeedCalculation = YES;
-//        self.landscapeViews = landscapeViews;
-//    }
-//}
-//
-//// Lays out views top to bottom
-//- (void) verticallyLayoutLandscapeViews:(NSArray *)landscapeViews withFixedLandscapeHeights:(NSArray *)landscapeHeights {
-//    self.landscapeType = EZLayoutContainerViewTypeVertical;
-//    self.landscapeFixedLengths = landscapeHeights;
-//    if (self.superview) {
-//        self.landscapePercentagesNeedCalculation = NO;
-//        CGFloat containterLength = [UIDevice isLandscape] ? self.superview.ezHeight : self.superview.ezWidth;
-//        NSArray *percentages = [self calculatePercentagesFromLengths:landscapeHeights containerLength:containterLength];
-//        [self verticallyLayoutLandscapeViews:landscapeViews withLandscapePercentages:percentages];
-//        
-//    } else {
-//        self.landscapePercentagesNeedCalculation = YES;
-//        self.landscapeViews = landscapeViews;
-//    }
-//}
 
 
 #pragma mark - Other
@@ -404,6 +345,10 @@
             [ezView ezLayoutSubviews];
         }
     }
+    if (kEZDebugMode) {
+        EZLayoutDebugLayer *layer = [EZLayoutDebugLayer debugLayerWithFrame:self.bounds];
+        [self.layer insertSublayer:layer atIndex:0];
+    }
     
     // Layout vertical or horizontal
     [self checkPercentagesNeedCalculations];
@@ -417,14 +362,14 @@
         [self addSubview:viewForLayout];
         NSValue *rectVal = [rects objectAtIndex:idx];
         CGRect rect = [rectVal CGRectValue];
-        if (kEZDebugMode) {
-            EZLayoutDebugLayer *layer = [EZLayoutDebugLayer debugLayerWithFrame:rect];
-            [self.layer insertSublayer:layer atIndex:0];
-        }
         [viewForLayout calculateSizeAndAlignmentValuesInContainerRect:rect];
         [viewForLayout calculateViewInContainerRect:rect];
         if (viewForLayout.frameWasSetBlock) {
             viewForLayout.frameWasSetBlock(self);
+        }
+        if (kEZDebugMode) {
+            EZLayoutDebugLayer *layer = [EZLayoutDebugLayer debugLayerWithFrame:rect];
+            [self.layer insertSublayer:layer atIndex:0];
         }
         if ([viewForLayout isKindOfClass:[EZLayoutContainerView class]]) {
             EZLayoutContainerView *ezViewForLayout = (EZLayoutContainerView *)viewForLayout;
