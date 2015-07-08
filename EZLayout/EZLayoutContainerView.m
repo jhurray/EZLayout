@@ -220,11 +220,6 @@
 
 // Used to start EZLayout
 - (void) attachToViewController:(UIViewController *)viewController {
-    for (UIView *view in viewController.view.subviews) {
-        if ([view isKindOfClass:[EZLayoutContainerView class]]) {
-            NSAssert(NO, @"EZLayout Fatal Error: An EZLayoutContainerView is already attached to this view controller.");
-        }
-    }
     if([UIViewController instancesRespondToSelector:@selector(edgesForExtendedLayout)]) {
         viewController.edgesForExtendedLayout = UIRectEdgeNone;
     }
@@ -236,11 +231,6 @@
 }
 
 - (void) attachToTableViewCell:(UITableViewCell *)cell {
-    for (UIView *view in cell.contentView.subviews) {
-        if ([view isKindOfClass:[EZLayoutContainerView class]]) {
-            NSAssert(NO, @"EZLayout Fatal Error: An EZLayoutContainerView is already attached to this table view cell.");
-        }
-    }
     self.isTopContainer = YES;
     self.frame = cell.contentView.bounds;
     [cell.contentView addSubview:self];
