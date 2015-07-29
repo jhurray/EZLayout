@@ -12,6 +12,8 @@
 #import "EZLayoutExampleViewController.h"
 #import "LoginViewController.h"
 
+#import "ALInitialViewController.h"
+
 @interface AppDelegate ()
 
 @end
@@ -21,7 +23,6 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    
     
     EZLayoutExampleViewController *exampleVC = [[EZLayoutExampleViewController alloc] init];
     exampleVC.title = @"EZLayout ViewController Example";

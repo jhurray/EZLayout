@@ -392,19 +392,19 @@
     if (self.fixedLengths && self.percentagesNeedCalculation) {
         if (self.type == EZLayoutContainerViewTypeHorizontal) {
             self.percentages = [self calculatePercentagesFromLengths:self.fixedLengths
-                                                     containerLength:self.superview.ezWidth];
+                                                     containerLength:self.ezWidth];
         } else {
             self.percentages = [self calculatePercentagesFromLengths:self.fixedLengths
-                                                     containerLength:self.superview.ezHeight];
+                                                     containerLength:self.ezHeight];
         }
     }
     if (self.landscapeFixedLengths && self.landscapePercentagesNeedCalculation) {
         if (self.type == EZLayoutContainerViewTypeHorizontal) {
             self.landscapePercentages = [self calculatePercentagesFromLengths:self.fixedLengths
-                                                              containerLength:self.superview.ezWidth];
+                                                              containerLength:self.ezWidth];
         } else {
             self.landscapePercentages = [self calculatePercentagesFromLengths:self.fixedLengths
-                                                              containerLength:self.superview.ezHeight];
+                                                              containerLength:self.ezHeight];
         }
     }
 }

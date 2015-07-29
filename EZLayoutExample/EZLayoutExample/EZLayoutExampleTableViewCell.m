@@ -48,7 +48,7 @@
     }];
     
     UITextView *textView = [UITextView ezMakeBasic];
-    textView.text = @"Lorem ipsum dipsum, Lorem ipsum dipsum, Lorem ipsum dipsum, Lorem ipsum dipsum, Lorem ipsum dipsum, Lorem ipsum dipsum, Lorem ipsum dipsum";
+    textView.text = @"Lorem ipsum dipsum, Lorem ipsum dipsum, Lorem ipsum dipsum, Lorem ipsum dipsum, Lorem ipsum dipsum, Lorem ipsum dipsum, Lorem ipsum dipsum, Lorem ipsum dipsum, Lorem ipsum dipsum, Lorem ipsum dipsum, Lorem ipsum dipsum, Lorem ipsum dipsum, Lorem ipsum dipsum, Lorem ipsum dipsum, Lorem ipsum dipsum, Lorem ipsum dipsum, Lorem ipsum dipsum, Lorem ipsum dipsum, Lorem ipsum dipsum, Lorem ipsum dipsum, Lorem ipsum dipsum";
     textView.scrollEnabled = NO;
     textView.backgroundColor = [UIColor clearColor];
     
